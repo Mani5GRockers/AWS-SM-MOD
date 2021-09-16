@@ -50,12 +50,12 @@ async def return_search(query, page=1, sukebei=False):
                 splitted = urlsplit(link)
                 if splitted.scheme == 'magnet' and splitted.query:
                     link = f'<code>{link}</code>'
-                newtext = f'''<b>{a + 1}.</b> <code>{html.escape(i["title"])}</code>
-<b>Link:</b> <code>{link}</code>
-<b>Size:</b> <code>{i["nyaa_size"]}</code>
-<b>Seeders:</b> <code>{i["nyaa_seeders"]}</code>
-<b>Leechers:</b> <code>{i["nyaa_leechers"]}</code>
-<b>Category:</b> <code>{i["nyaa_category"]}</code>\n\n'''
+                newtext = f'''<b>\n\n✥════ @awsmirrorzone ════✥\n\n{a + 1}.</b> <code>{html.escape(i["title"])}</code>
+<b>\n🧲 TorrentLink:\n\n</b> <code>{link}</code>
+<b>\n🗃 Size:</b> <code>{i["nyaa_size"]}</code>
+<b>👤 Seeders:</b> <code>{i["nyaa_seeders"]}</code>
+<b>🔄 Leechers:</b> <code>{i["nyaa_leechers"]}</code>
+<b>🗄 Category:</b> <code>{i["nyaa_category"]}</code>'''
                 futtext = text + newtext
                 if (a and not a % 10) or len((await parser.parse(futtext))['message']) > 4096:
                     results.append(text)
@@ -70,7 +70,7 @@ async def return_search(query, page=1, sukebei=False):
         except IndexError:
             return '', len(results), ttl
 
-message_info = {}
+message_info = dict()
 ignore = set()
 
 @app.on_message(filters.command(['nyaasi', f'nyaasi@{bot.username}']))
@@ -90,13 +90,9 @@ async def nyaa_search_sukebei(client, message):
 async def init_search(client, message, query, sukebei):
     result, pages, ttl = await return_search(query, sukebei=sukebei)
     if not result:
-        await message.reply_text('No results found')
+        await message.reply_text('🧲 No Results Found ❗️')
     else:
-        buttons = [
-            InlineKeyboardButton(f'1/{pages}', 'nyaa_nop'),
-            InlineKeyboardButton('Next', 'nyaa_next'),
-        ]
-
+        buttons = [InlineKeyboardButton(f'1/{pages}', 'nyaa_nop'), InlineKeyboardButton(f'Next', 'nyaa_next')]
         if pages == 1:
             buttons.pop()
         reply = await message.reply_text(result, reply_markup=InlineKeyboardMarkup([
@@ -136,12 +132,7 @@ async def nyaa_callback(client, callback_query):
                 await callback_query.answer('...no', cache_time=3600)
                 return
             text, pages, ttl = await return_search(query, current_page, sukebei)
-        buttons = [
-            InlineKeyboardButton('Prev', 'nyaa_back'),
-            InlineKeyboardButton(f'{current_page}/{pages}', 'nyaa_nop'),
-            InlineKeyboardButton('Next', 'nyaa_next'),
-        ]
-
+        buttons = [InlineKeyboardButton(f'Prev', 'nyaa_back'), InlineKeyboardButton(f'{current_page}/{pages}', 'nyaa_nop'), InlineKeyboardButton(f'Next', 'nyaa_next')]
         if ttl_ended:
             buttons = [InlineKeyboardButton('Search Expired', 'nyaa_nop')]
         else:
@@ -168,7 +159,7 @@ class TorrentSearch:
     response = None
     response_range = None
 
-    RESULT_LIMIT = 4
+    RESULT_LIMIT = 5
     RESULT_STR = None
 
     def __init__(self, command: str, source: str, result_str: str):
@@ -191,7 +182,7 @@ class TorrentSearch:
         string = self.RESULT_STR.format(**values)
         extra = ""
         if "Files" in values:
-            tmp_str = "➲[{Quality} - {Type} ({Size})]({Torrent}): `{magnet}`"
+            tmp_str = "🧲 TorrentLink: [{Quality} - {Type} ({Size})]({Torrent})\n\n🧲 MagnetLink: `{magnet}`"
             extra += "\n".join(
                 tmp_str.format(**f, magnet=self.format_magnet(f['Magnet']))
                 for f in values['Files']
@@ -199,18 +190,15 @@ class TorrentSearch:
         else:
             magnet = values.get('magnet', values.get('Magnet'))  # Avoid updating source dict
             if magnet:
-                extra += f"➲Magnet: `{self.format_magnet(magnet)}`"
+                extra += f"🧲 MagnetLink:\n\n `{self.format_magnet(magnet)}`"
         if (extra):
             string += "\n" + extra
         return string
 
     async def update_message(self):
-        prevBtn = InlineKeyboardButton(
-            'Prev', callback_data=f"{self.command}_previous"
-        )
-
+        prevBtn = InlineKeyboardButton(f"Prev", callback_data=f"{self.command}_previous")
         delBtn = InlineKeyboardButton(f"{emoji.CROSS_MARK}", callback_data=f"{self.command}_delete")
-        nextBtn = InlineKeyboardButton('Next', callback_data=f"{self.command}_next")
+        nextBtn = InlineKeyboardButton(f"Next", callback_data=f"{self.command}_next")
 
         inline = []
         if (self.index != 0):
@@ -220,8 +208,8 @@ class TorrentSearch:
             inline.append(nextBtn)
 
         res_lim = min(self.RESULT_LIMIT, len(self.response) - self.RESULT_LIMIT*self.index)
-        result = f"**Page - {self.index+1}**\n\n"
-        result += "\n\n=======================\n\n".join(
+        result = f"**✥════ @awsmirrorzone ════✥\n\n📖 Page - {self.index+1}**\n\n"
+        result += "\n\n✥════ @Mani5GRockers ════✥\n\n".join(
             self.get_formatted_string(self.response[self.response_range[self.index]+i])
             for i in range(res_lim)
         )
@@ -234,14 +222,14 @@ class TorrentSearch:
 
     async def find(self, client, message):
         if len(message.command) < 2:
-            await message.reply_text(f"Usage: /{self.command} query")
+            await message.reply_text(f"👉 How to Use Torrent Search ?\nExample: \n\n /{self.command} Search Name")
             return
 
         query = urlencode(message.text.split(None, 1)[1])
-        self.message = await message.reply_text("Searching")
+        self.message = await message.reply_text("🧲 MagnetLink 🔍 Searching...")
         try:
             async with aiohttp.ClientSession() as session:
-                async with session.get(f"{self.source}/{query}", timeout=15) as resp:
+                async with session.get(f"{self.source}/{query}") as resp:
                     if (resp.status != 200):
                         raise Exception('unsuccessful request')
                     result = await resp.json()
@@ -250,7 +238,7 @@ class TorrentSearch:
                     self.response = result
                     self.response_range = range(0, len(self.response), self.RESULT_LIMIT)
         except:
-            await self.message.edit("No Results Found.")
+            await self.message.edit("🧲 No Results Found ❗️")
             return
         await self.update_message()
 
@@ -271,81 +259,90 @@ class TorrentSearch:
         await self.update_message()
 
 RESULT_STR_1337 = (
-    "➲Name: `{Name}`\n"
-    "➲Size: {Size}\n"
-    "➲Seeders: {Seeders} || ➲Leechers: {Leechers}"
+    "🗂 Name: `{Name}`\n"
+    "🗃 Size: {Size}\n"
+    "👤 Seeders: {Seeders} | 🔄 Leechers: {Leechers}"
 )
 RESULT_STR_PIRATEBAY = (
-    "➲Name: `{Name}`\n"
-    "➲Size: {Size}\n"
-    "➲Seeders: {Seeders} || ➲Leechers: {Leechers}"
+    "🗂 Name: `{Name}`\n"
+    "🗃 Size: {Size}\n"
+    "👤 Seeders: {Seeders} | 🔄 Leechers: {Leechers}"
 )
 RESULT_STR_TGX = (
-    "➲Name: `{Name}`\n" 
-    "➲Size: {Size}\n"
-    "➲Seeders: {Seeders} || ➲Leechers: {Leechers}"
+    "🗂 Name: `{Name}`\n" 
+    "🗃 Size: {Size}\n"
+    "👤 Seeders: {Seeders} | 🔄 Leechers: {Leechers}"
 )
 RESULT_STR_YTS = (
-    "➲Name: `{Name}`\n"
-    "➲Released on: {ReleasedDate}\n"
-    "➲Genre: {Genre}\n"
-    "➲Rating: {Rating}\n"
-    "➲Likes: {Likes}\n"
-    "➲Duration: {Runtime}\n"
-    "➲Language: {Language}"
+    "🗂 Name: `{Name}`\n"
+    "★ Released on: {ReleasedDate}\n"
+    "★ Genre: {Genre}\n"
+    "★ Rating: {Rating}\n"
+    "★ Likes: {Likes}\n"
+    "★ Duration: {Runtime}\n"
+    "★ Language: {Language}\n\n"
 )
 RESULT_STR_EZTV = (
-    "➲Name: `{Name}`\n"
-    "➲Size: {Size}\n"
-    "➲Seeders: {Seeders}"
+    "🗂 Name: `{Name}`\n"
+    "🗃 Size: {Size}\n"
+    "👤 Seeders: {Seeders}"
 )
 RESULT_STR_TORLOCK = (
-    "➲Name: `{Name}`\n"
-    "➲Size: {Size}\n"
-    "➲Seeders: {Seeders} || ➲Leechers: {Leechers}"
+    "🗂 Name: `{Name}`\n"
+    "🗃 Size: {Size}\n"
+    "👤 Seeders: {Seeders} | 🔄 Leechers: {Leechers}"
 )
 RESULT_STR_RARBG = (
-    "➲Name: `{Name}`\n"
-    "➲Size: {Size}\n"
-    "➲Seeders: {Seeders} || ➲Leechers: {Leechers}"
+    "🗂 Name: `{Name}`\n"
+    "🗃 Size: {Size}\n"
+    "👤 Seeders: {Seeders} | 🔄 Leechers: {Leechers}"
 )
 RESULT_STR_ALL = (
-    "➲Name: `{Name}`\n"
-    "➲Size: {Size}\n"
-    "➲Seeders: {Seeders} || ➲Leechers: {Leechers}"
+    "🗂 Name: `{Name}`\n"
+    "🗃 Size: {Size}\n"
+    "👤 Seeders: {Seeders} | 🔄 Leechers: {Leechers}"
 )
 
-TORRENT_API = 'https://api.linkstore.eu.org/api'
+#TORRENT_API_URL = 'https://api.eunhamirror.repl.co/api'
+TORRENT_API_URL = 'https://api.linkstore.eu.org/api'
 
 torrents_dict = {
-    '1337x': {'source': f"{TORRENT_API}/1337x/", 'result_str': RESULT_STR_1337},
-    'piratebay': {'source': f"{TORRENT_API}/piratebay/", 'result_str': RESULT_STR_PIRATEBAY},
-    'tgx': {'source': f"{TORRENT_API}/tgx/", 'result_str': RESULT_STR_TGX},
-    'yts': {'source': f"{TORRENT_API}/yts/", 'result_str': RESULT_STR_YTS},
-    'eztv': {'source': f"{TORRENT_API}/eztv/", 'result_str': RESULT_STR_EZTV},
-    'torlock': {'source': f"{TORRENT_API}/torlock/", 'result_str': RESULT_STR_TORLOCK},
-    'rarbg': {'source': f"{TORRENT_API}/rarbg/", 'result_str': RESULT_STR_RARBG},
-    'ts': {'source': f"{TORRENT_API}/all/", 'result_str': RESULT_STR_ALL}
+    '1337x': {'source': f"{TORRENT_API_URL}/1337x/", 'result_str': RESULT_STR_1337},
+    'piratebay': {'source': f"{TORRENT_API_URL}/piratebay/", 'result_str': RESULT_STR_PIRATEBAY},
+    'tgx': {'source': f"{TORRENT_API_URL}/tgx/", 'result_str': RESULT_STR_TGX},
+    'yts': {'source': f"{TORRENT_API_URL}/yts/", 'result_str': RESULT_STR_YTS},
+    'eztv': {'source': f"{TORRENT_API_URL}/eztv/", 'result_str': RESULT_STR_EZTV},
+    'torlock': {'source': f"{TORRENT_API_URL}/torlock/", 'result_str': RESULT_STR_TORLOCK},
+    'rarbg': {'source': f"{TORRENT_API_URL}/rarbg/", 'result_str': RESULT_STR_RARBG},
+    'ts': {'source': f"{TORRENT_API_URL}/all/", 'result_str': RESULT_STR_ALL}
 }
 
-torrent_handlers = [
-    TorrentSearch(command, value['source'], value['result_str'])
-    for command, value in torrents_dict.items()
-]
+torrent_handlers = []
+for command, value in torrents_dict.items():
+    torrent_handlers.append(TorrentSearch(command, value['source'], value['result_str']))
 
 def searchhelp(update, context):
     help_string = '''
-<b>Torrent Search</b>
-• /nyaasi <i>[search query]</i>
-• /sukebei <i>[search query]</i>
-• /1337x <i>[search query]</i>
-• /piratebay <i>[search query]</i>
-• /tgx <i>[search query]</i>
-• /yts <i>[search query]</i>
-• /eztv <i>[search query]</i>
-• /torlock <i>[search query]</i>
-• /rarbg <i>[search query]</i>
-• /ts <i>[search query]</i>
+<b>🧲 Torrent 🔍 Search 🚦\n</b>
+<b>✥═══ @awsmirrorzone ═══✥\n</b>
+
+★ /ts <i>[search name]</i>
+★ /1337x <i>[search name]</i>
+★ /piratebay <i>[search name]</i>
+★ /tgx <i>[search name]</i>
+★ /eztv <i>[search name]</i>
+★ /torlock <i>[search name]</i>
+★ /rarbg <i>[search name]</i>
+★ /yts <i>[search name]</i>
+
+<b>🧲 Torrent RSS Search 🔍</b>
+
+★ /nyaasi <i>[search name]</i>
+★ /sukebei <i>[search name]</i>
+
+<b>Example :</b> <code>/nyaasi search name</code>
+
+<b>\n✥═══ @Mani5GRockers ═══✥</b>
 '''
     sendMessage(help_string, context.bot, update)
     
