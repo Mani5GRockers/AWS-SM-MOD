@@ -5,7 +5,7 @@ body:
     id: describe-the-bug
     attributes:
       label: Describe the Bug
-      description: A clear and concise description about the bug. **NOTE:** We don't provide support for modified code/repo of slam-mirrorbot, so don't report errors/bug arising from your modified code. Fix it yourself.
+      description: A clear and concise description about the bug. **NOTE:** We don't provide support for modified code/repo of aws-mirror-zonebot, so don't report errors/bug arising from your modified code. Fix it yourself.
       value: "A bug happened!"
     validations:
       required: true
