@@ -1,8 +1,11 @@
 blank_issues_enabled: false
 contact_links:
-  - name: Slam Mirrorbot Channels
-    url: https://t.me/SlamMirrorUpdates
-    about: Updates Channels
-  - name: Slam Mirrorbot Group
-    url: https://t.me/SlamSupport
+  - name: AWS Mirrorbot Channels
+    url: https://t.me/awsmirror
+    about: Daily Updates Channels
+  - name: AWS MIRROR ZONE Group
+    url: https://t.me/awsmirrorzone
+    about: Mirror to AWS MIRROR ZONE Group
+  - name: AWS Chat Group
+    url: https://t.me/aws_public_chat
     about: Support Group
