@@ -10,6 +10,159 @@
 
 **Slam Mirror Bot** is a _multipurpose_ Telegram Bot written in Python for mirroring files on the Internet to our beloved Google Drive. Based on [python-aria-mirror-bot](https://github.com/lzzy12/python-aria-mirror-bot)
 
+#New Updates
+
+#Fix https://awslink.in/slam  https://t.me/SlamMirrorUpdates 07-09-2021 Last Updates.
+
+## MY EDIT PAGE
+- BOT COMMENTS change me - https://github.com/mani66660/slam-mirrorbot-new/edit/master/bot/helper/telegram_helper/bot_commands.py
+
+- /help BOT Start Message, HELP COMMENTS INFO, STATS NEW STYLE, https://github.com/mani66660/slam-tg-mirror-bot/blob/master/bot/__main__.py
+
+- /mirror FINISHED_PROGRESS_STR, UNFINISHED_PROGRESS_STR, 🟩🟨, ╔●╟●╚●╚═●, MirrorStatus, ✥═══ @Mani5GRockers ═══✥, 〘〙, STATUS_LIMIT ⬅️➡️, Uploader - https://github.com/mani66660/slam-tg-mirror-bot/blob/master/bot/helper/ext_utils/bot_utils.py
+
+- /mirror ✥════ @Mani5GRockers ════✥, hide cpu, ram, disk - https://github.com/mani66660/slam-tg-mirror-bot/edit/master/bot/helper/telegram_helper/message_utils.py
+
+- /mirror stop url msg, mirror wrong url, name replay msg    sendMessage('❌ Opps 🤦! Not Like That ❌\n\n💁‍♀️ 𝐇𝐎𝐖 𝐓𝐎 𝐌𝐈𝐑𝐑𝐎𝐑 ?\n\n📖 Read Document 📖\n\n 👉 https://awslink.in/awsmirrorzonehelp', bot, update), 👤 Uploader: </b>👉 {uname}\n\n⛔ 𝘿𝙤 𝙣𝙤𝙩 𝙨𝙝𝙖𝙧𝙚 𝙄𝙣𝙙𝙚𝙭 𝙇𝙞𝙣𝙠, download has been stopped</b>:\n\n🎄 <b>Reason - https://github.com/mani66660/slam-tg-mirror-bot/blob/master/bot/modules/mirror.py
+
+- /watch commment msg added - https://github.com/mani66660/slam-tg-mirror-bot/blob/master/bot/modules/watch.py
+- /authorize Emoji logo added- https://github.com/mani66660/slam-tg-mirror-bot/blob/master/bot/modules/authorize.py
+- /tshelp - https://github.com/mani66660/slam-tg-mirror-bot/blob/master/bot/modules/torrent_search.py
+- 
+- 
+- 
+    
+## Deploying on Heroku using Ubuntu:
+
+- Install [Heroku cli](https://devcenter.heroku.com/articles/heroku-cli)
+- Login into your heroku account with command:
+```
+sudo apt-get update
+sudo apt-get install
+sudo apt install python                #Downloading...
+sudo apt install python3-pip
+sudo pip install pyrogram
+pip install telegraph
+sudo python3 -m pip install --upgrade pip
+sudo apt install nodejs
+sudo apt install git
+sudo pip3 install docker-compose
+sudo apt install npm                   #Downloading...
+sudo npm install -g heroku             #Downloading...
+```
+```
+heroku login
+heroku create awsxxxbot                #Change awsxxxbot new app Name your choose
+cd
+git clone https://github.com/mani66660/mirrorxbot
+ls
+cd mirrorxbot                          #Change Repo Name or repo remove cmd $rm -rf MirrorX
+heroku git:remote -a awsxxxbot         #Change awsxxxbot new app Name
+sudo pip3 install -r requirements.txt
+heroku stack:set container -a awsxxxbot             #Free Dynos install   or $heroku stack:set container
+heroku addons:create heroku-postgresql                                    #Create heroku-postgresql database
+git add -f credentials.json token.pickle config.env heroku.yml
+git commit -m "Added Creds."
+git config --global user.email heroku31@tempmail.awslink.in               #Change heroku email id set your email id
+git config --global user.name Your Name                                   #Change your Name
+git commit -m "First Deployment"
+git push heroku master --force                    $git push heroku archived --force    # not working master change archived beta
+
+heroku ps:scale worker=0
+heroku ps:scale worker=1
+    
+heroku logs
+```
+```
+  Install the Heroku CLI
+Download and install the Heroku CLI.
+
+If you haven't already, log in to your Heroku account and follow the prompts to create a new SSH public key.
+
+$ heroku login
+
+Create a new Git repository
+Initialize a git repository in a new or existing directory
+
+$ cd
+$ ls
+$ rm -rf mirrorxbot       # old repo remove
+$ git clone https://github.com/mani66660/mirrorxbot
+$ ls
+$ cd mirrorxbot                          #Change Repo Name or repo remove cmd $rm -rf MirrorX
+$ git init
+$ heroku git:remote -a mirrorxbot
+
+Deploy your application
+Commit your code to the repository and deploy it to Heroku using Git.
+
+$ git add .
+$ git commit -am "make it better"
+$ git push heroku master
+
+You can now change your main deploy branch from "master" to "main" for both manual and automatic deploys, please follow the instructions here.
+Existing Git repository
+For existing repositories, simply add the heroku remote
+
+$ heroku git:remote -a awsmirrorzone0 
+```
+
+## How to Add Torrent Search Extra Bot Addons
+- bot/modules/torrent_search.py add file - torrent_search.py
+- bot/helper/custom_filters.py add file - custom_filters.py
+- Add torrent_search (bot/__main__.py) 20 line add - from .modules import authorize, list, cancel_mirror, mirror_status, mirror, clone, watch, shell, eval, torrent_search, delete, speedtest, count, reboot
+- /{BotCommands.TsHelpCommand}: Get help for Torrent search module        - 140 line bot comments msg
+- /{BotCommands.TsHelpCommand}: Get help for Torrent search module        - 172 line bot comments msg
+- (f'{BotCommands.TsHelpCommand}','Get help for Torrent search module')   - 200 line bot comment set
+- bot/helper/telegram_helper/bot_commands.py      self.TsHelpCommand = 'tshelp'     - 30line last bot comment set
+- docker-compose.yml - 10,11 line add space
+- DONE.
+
+- Torrent search Supported:
+```
+nyaa.si, sukebei, 1337x, piratebay,
+tgx, yts, eztv, torlock, rarbg
+```
+https://github.com/digidigido3/slam-mirrorbot/blob/master/bot/modules/search.py  and add 165 line
+```
+TORRENT_API_URL = 'https://api.linkstore.eu.org/api'
+
+torrents_dict = {
+    '1337x': {'source': f"{TORRENT_API_URL}/api/1337x/", 'result_str': RESULT_STR_1337X},
+    'piratebay': {'source': f"{TORRENT_API_URL}/api/piratebay/", 'result_str': RESULT_STR_PIRATEBAY},
+    'tgx': {'source': f"{TORRENT_API_URL}/api/tgx/", 'result_str': RESULT_STR_TGX},
+    'yts': {'source': f"{TORRENT_API_URL}/api/yts/", 'result_str': RESULT_STR_YTS},
+    'eztv': {'source': f"{TORRENT_API_URL}/api/eztv/", 'result_str': RESULT_STR_EZTV},
+    'torlock': {'source': f"{TORRENT_API_URL}/api/torlock/", 'result_str': RESULT_STR_TORLOCK},
+    'rarbg': {'source': f"{TORRENT_API_URL}/api/rarbg/", 'result_str': RESULT_STR_RARBG},
+    'ts': {'source': f"{TORRENT_API_URL}/api/all/", 'result_str': RESULT_STR_ALL}
+}
+```
+```
+torrents_dict = {
+    '1337x': {'source': "https://api.eunhamirror.repl.co/api/1337x/", 'result_str': RESULT_STR_1337},
+    'piratebay': {'source': "https://api.eunhamirror.repl.co/api/piratebay/", 'result_str': RESULT_STR_PIRATEBAY},
+    'tgx': {'source': "https://api.eunhamirror.repl.co/api/tgx/", 'result_str': RESULT_STR_TGX},
+    'yts': {'source': "https://api.eunhamirror.repl.co/api/yts/", 'result_str': RESULT_STR_YTS},
+    'eztv': {'source': "https://api.eunhamirror.repl.co/api/eztv/", 'result_str': RESULT_STR_EZTV},
+    'torlock': {'source': "https://api.eunhamirror.repl.co/api/torlock/", 'result_str': RESULT_STR_TORLOCK},
+    'rarbg': {'source': "https://api.eunhamirror.repl.co/api/rarbg/", 'result_str': RESULT_STR_RARBG},
+    'ts': {'source': "https://api.eunhamirror.repl.co/api/all/", 'result_str': RESULT_STR_ALL}
+}
+```
+```
+torrents_dict = {
+    '1337x': {'source': "https://torrents-api.netlify.app/.netlify/functions/api/1337x/", 'result_str': RESULT_STR_1337},
+    'piratebay': {'source': "https://torrents-api.netlify.app/.netlify/functions/api/piratebay/", 'result_str': RESULT_STR_PIRATEBAY},
+    'tgx': {'source': "https://torrents-api.netlify.app/.netlify/functions/api/tgx/", 'result_str': RESULT_STR_TGX},
+    'yts': {'source': "https://torrents-api.netlify.app/.netlify/functions/api/yts/", 'result_str': RESULT_STR_YTS},
+    'eztv': {'source': "https://torrents-api.netlify.app/.netlify/functions/api/eztv/", 'result_str': RESULT_STR_EZTV},
+    'torlock': {'source': "https://torrents-api.netlify.app/.netlify/functions/api/torlock/", 'result_str': RESULT_STR_TORLOCK},
+    'rarbg': {'source': "https://torrents-api.netlify.app/.netlify/functions/api/rarbg/", 'result_str': RESULT_STR_RARBG},
+    'ts': {'source': "https://torrents-api.netlify.app/.netlify/functions/api/all/", 'result_str': RESULT_STR_ALL}
+}
+```
+
 # Features:
 <details>
     <summary><b>Click Here For More Details</b></summary>
