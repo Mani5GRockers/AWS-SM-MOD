@@ -56,7 +56,7 @@ Type /{BotCommands.HelpCommand} to get a list of available commands
         sendMarkup(start_string, context.bot, update, reply_markup)
     else:
         sendMarkup(
-            'Oops! not a Authorized user.\nPlease Join <b>aws-mirrorzone-group</b>.',
+            'This bot can mirror all your links to Google Drive!\nPlease Join <b>aws-mirrorzone-group</b>.',
             context.bot,
             update,
             reply_markup,
@@ -154,8 +154,8 @@ def bot_help(update, context):
 
 /{BotCommands.TsHelpCommand}: Get help for Torrent search module
 '''
-    help = Telegraph(access_token=telegraph_token).create_page(title = 'Slam Mirrorbot Help', author_name='Slam Mirrorbot',
-                                                               author_url='https://github.com/SlamDevs/slam-mirrorbot', html_content=help_string_telegraph)["path"]
+    help = Telegraph(access_token=telegraph_token).create_page(title = 'AWS Mirror Zonebot Help', author_name='AWS Mirror Zonebot',
+                                                               author_url='https://github.com/Mani5GRockers', html_content=help_string_telegraph)["path"]
     button = button_build.ButtonMaker()
     button.buildbutton("Other Commands", f"https://telegra.ph/{help}")
     reply_markup = InlineKeyboardMarkup(button.build_menu(1))
