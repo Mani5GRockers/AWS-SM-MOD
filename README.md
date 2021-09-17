@@ -193,20 +193,20 @@ Three buttons are already added including Drive Link, Index Link, and View Link,
 ```
 help - Get Detailed Help
 mirror - Start Mirroring
-tarmirror - Start mirroring and upload as .tar
-zipmirror - Start mirroring and upload as .zip
-unzipmirror - Extract files
+tar - Start mirroring and upload as .tar
+zip - Start mirroring and upload as .zip
+unzip - Extract files
 qbmirror - Start Mirroring using qBittorrent
-qbtarmirror - Start mirroring and upload as .tar using qb
-qbzipmirror - Start mirroring and upload as .zip using qb
-qbunzipmirror - Extract files using qBittorrent
+qbtar - Start mirroring and upload as .tar using qb
+qbzip - Start mirroring and upload as .zip using qb
+qbunzip - Extract files using qBittorrent
 clone - Copy file/folder to Drive
 count - Count file/folder of Drive link
 watch - Mirror Youtube-dl supported link
 tarwatch - Mirror Youtube playlist link and upload as .tar
 zipwatch - Mirror Youtube playlist link and upload as .zip
 status - Get Mirror Status message
-list -  [query] Searches files in Drive
+search -  [query] Searches files in Drive
 cancel - Cancel a task
 cancelall - Cancel all tasks
 del - [drive_url] Delete file from Drive
