@@ -206,7 +206,7 @@ watch - Mirror Youtube-dl supported link
 tarwatch - Mirror Youtube playlist link and upload as .tar
 zipwatch - Mirror Youtube playlist link and upload as .zip
 status - Get Mirror Status message
-search -  [query] Searches files in Drive
+search -  [Name] Searches files in Drive
 cancel - Cancel a task
 cancelall - Cancel all tasks
 del - [drive_url] Delete file from Drive
