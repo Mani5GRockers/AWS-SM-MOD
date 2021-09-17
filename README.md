@@ -72,6 +72,8 @@ heroku ps:scale worker=0
 heroku ps:scale worker=1
     
 heroku logs
+    
+apt --fix-broken install any error use this fix    
 ```
 ```
   Install the Heroku CLI
