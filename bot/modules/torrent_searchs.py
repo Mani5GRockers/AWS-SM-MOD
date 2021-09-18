@@ -303,8 +303,8 @@ RESULT_STR_ALL = (
     "👤 Seeders: {Seeders} | 🔄 Leechers: {Leechers}"
 )
 
-#TORRENT_API_URL = 'https://api.eunhamirror.repl.co/api'
-TORRENT_API_URL1 = 'https://api.linkstore.eu.org/api'
+TORRENT_API_URL1 = 'https://api.eunhamirror.repl.co/api'
+#TORRENT_API_URL1 = 'https://api.linkstore.eu.org/api'
 
 torrents_dict = {
     '1337x1': {'source': f"{TORRENT_API_URL1}/1337x/", 'result_str': RESULT_STR_1337},
