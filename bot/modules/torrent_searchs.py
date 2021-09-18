@@ -73,14 +73,14 @@ async def return_search(query, page=1, sukebei=False):
 message_info = dict()
 ignore = set()
 
-@app.on_message(filters.command(['nyaasi1', f'nyaasi1@{bot.username}']))
+@app.on_message(filters.command(['nyaasi', f'nyaasi@{bot.username}']))
 async def nyaa_search(client, message):
     text = message.text.split(' ')
     text.pop(0)
     query = ' '.join(text)
     await init_search(client, message, query, False)
 
-@app.on_message(filters.command(['sukebei1', f'sukebei1@{bot.username}']))
+@app.on_message(filters.command(['sukebei', f'sukebei@{bot.username}']))
 async def nyaa_search_sukebei(client, message):
     text = message.text.split(' ')
     text.pop(0)
@@ -337,8 +337,8 @@ def searchhelp(update, context):
 
 <b>🧲 Torrent RSS Search 🔍</b>
 
-★ /nyaasi1 <i>[search name]</i>
-★ /sukebei1 <i>[search name]</i>
+★ /nyaasi <i>[search name]</i>
+★ /sukebei <i>[search name]</i>
 
 <b>Example :</b> <code>/nyaasi search name</code>
 
