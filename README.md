@@ -57,7 +57,8 @@ cancelall - ★ 🚫 Cancel all tasks ★
 restart - ★ ♻️ Restart the Bot [owner/sudo only] ★
 tshelp - ★ 🧲 Torrent Search File Name ★
 tshelp1 - ★ 🧲 Torrent Search File Name ★
-```      
+```  
+  ## multi Bot commands
 ``` 
 help1 - ★ Get Detailed Help ★
 mirror1 - ★ Start Mirroring ★
@@ -82,7 +83,8 @@ cancelall1 - ★ 🚫 Cancel all tasks ★
 restart1 - ★ ♻️ Restart the Bot [owner/sudo only] ★
 tshelp1 - ★ 🧲 Torrent Search File Name ★
 tshelp11 - ★ 🧲 Torrent Search1 File Name ★ 
-```   
+```
+  ## CONFIG.env
 ```     
 STATS_COMMAND = 'stats'
 MIRROR_COMMAND = 'mirror'
@@ -119,6 +121,7 @@ SPEED_COMMAND = 'speedtest'
 PING_COMMAND = 'ping'
 START_COMMAND = 'start'  
  ```   
+  ## BOT COMMENT.py
 ```   
 import os
 
@@ -287,18 +290,6 @@ torrents_dict = {
     'torlock': {'source': "https://api.eunhamirror.repl.co/api/torlock/", 'result_str': RESULT_STR_TORLOCK},
     'rarbg': {'source': "https://api.eunhamirror.repl.co/api/rarbg/", 'result_str': RESULT_STR_RARBG},
     'ts': {'source': "https://api.eunhamirror.repl.co/api/all/", 'result_str': RESULT_STR_ALL}
-}
-```
-```
-torrents_dict = {
-    '1337x': {'source': "https://torrents-api.netlify.app/.netlify/functions/api/1337x/", 'result_str': RESULT_STR_1337},
-    'piratebay': {'source': "https://torrents-api.netlify.app/.netlify/functions/api/piratebay/", 'result_str': RESULT_STR_PIRATEBAY},
-    'tgx': {'source': "https://torrents-api.netlify.app/.netlify/functions/api/tgx/", 'result_str': RESULT_STR_TGX},
-    'yts': {'source': "https://torrents-api.netlify.app/.netlify/functions/api/yts/", 'result_str': RESULT_STR_YTS},
-    'eztv': {'source': "https://torrents-api.netlify.app/.netlify/functions/api/eztv/", 'result_str': RESULT_STR_EZTV},
-    'torlock': {'source': "https://torrents-api.netlify.app/.netlify/functions/api/torlock/", 'result_str': RESULT_STR_TORLOCK},
-    'rarbg': {'source': "https://torrents-api.netlify.app/.netlify/functions/api/rarbg/", 'result_str': RESULT_STR_RARBG},
-    'ts': {'source': "https://torrents-api.netlify.app/.netlify/functions/api/all/", 'result_str': RESULT_STR_ALL}
 }
 ```
 
