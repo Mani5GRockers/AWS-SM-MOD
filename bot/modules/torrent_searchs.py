@@ -27,16 +27,16 @@ from bot.helper.telegram_helper.message_utils import sendMessage
 search_lock = asyncio.Lock()
 search_info = {False: dict(), True: dict()}
 
-async def return_search(query, page=1, sukebei1=False):
+async def return_search(query, page=1, sukebei=False):
     page -= 1
     query = query.lower().strip()
-    used_search_info = search_info[sukebei1]
+    used_search_info = search_info[sukebei]
     async with search_lock:
         results, get_time = used_search_info.get(query, (None, 0))
         if (time.time() - get_time) > 3600:
             results = []
             async with aiohttp.ClientSession() as session:
-                async with session.get(f'https://{"sukebei." if sukebei1 else ""}nyaa.si/?page=rss&q={urlencode(query)}') as resp:
+                async with session.get(f'https://{"sukebei." if sukebei else ""}nyaa.si/?page=rss&q={urlencode(query)}') as resp:
                     d = feedparser.parse(await resp.text())
             text = ''
             a = 0
@@ -73,22 +73,22 @@ async def return_search(query, page=1, sukebei1=False):
 message_info = dict()
 ignore = set()
 
-@app.on_message(filters.command(['nyaasi1', f'nyaasi1@{bot.username}']))
+@app.on_message(filters.command(['nyaasi1', f'nyaasi@{bot.username}']))
 async def nyaa_search(client, message):
     text = message.text.split(' ')
     text.pop(0)
     query = ' '.join(text)
     await init_search(client, message, query, False)
 
-@app.on_message(filters.command(['sukebei1', f'sukebei1@{bot.username}']))
-async def nyaa_search_sukebei1(client, message):
+@app.on_message(filters.command(['sukebei1', f'sukebei@{bot.username}']))
+async def nyaa_search_sukebei(client, message):
     text = message.text.split(' ')
     text.pop(0)
     query = ' '.join(text)
     await init_search(client, message, query, True)
 
-async def init_search(client, message, query, sukebei1):
-    result, pages, ttl = await return_search(query, sukebei1=sukebei1)
+async def init_search(client, message, query, sukebei):
+    result, pages, ttl = await return_search(query, sukebei=sukebei)
     if not result:
         await message.reply_text('🧲 No Results Found ❗️')
     else:
@@ -98,7 +98,7 @@ async def init_search(client, message, query, sukebei1):
         reply = await message.reply_text(result, reply_markup=InlineKeyboardMarkup([
             buttons 
         ]))
-        message_info[(reply.chat.id, reply.message_id)] = message.from_user.id, ttl, query, 1, pages, sukebei1
+        message_info[(reply.chat.id, reply.message_id)] = message.from_user.id, ttl, query, 1, pages, sukebei
 
 @app.on_callback_query(custom_filters.callback_data('nyaa_nop'))
 async def nyaa_nop(client, callback_query):
@@ -114,7 +114,7 @@ async def nyaa_callback(client, callback_query):
         if message_identifier in ignore:
             await callback_query.answer()
             return
-        user_id, ttl, query, current_page, pages, sukebei1 = message_info.get(message_identifier, (None, 0, None, 0, 0, None))
+        user_id, ttl, query, current_page, pages, sukebei = message_info.get(message_identifier, (None, 0, None, 0, 0, None))
         og_current_page = current_page
         if data == 'nyaa_back':
             current_page -= 1
@@ -131,7 +131,7 @@ async def nyaa_callback(client, callback_query):
             if callback_query.from_user.id != user_id:
                 await callback_query.answer('...no', cache_time=3600)
                 return
-            text, pages, ttl = await return_search(query, current_page, sukebei1)
+            text, pages, ttl = await return_search(query, current_page, sukebei)
         buttons = [InlineKeyboardButton(f'Prev', 'nyaa_back'), InlineKeyboardButton(f'{current_page}/{pages}', 'nyaa_nop'), InlineKeyboardButton(f'Next', 'nyaa_next')]
         if ttl_ended:
             buttons = [InlineKeyboardButton('Search Expired', 'nyaa_nop')]
@@ -144,7 +144,7 @@ async def nyaa_callback(client, callback_query):
             await callback_query.edit_message_text(text, reply_markup=InlineKeyboardMarkup([
                 buttons
             ]))
-        message_info[message_identifier] = user_id, ttl, query, current_page, pages, sukebei1
+        message_info[message_identifier] = user_id, ttl, query, current_page, pages, sukebei
         if ttl_ended:
             ignore.add(message_identifier)
     await callback_query.answer()
@@ -303,8 +303,8 @@ RESULT_STR_ALL = (
     "👤 Seeders: {Seeders} | 🔄 Leechers: {Leechers}"
 )
 
-#TORRENT_API_URL = 'https://api.linkstore.eu.org/api'
-TORRENT_API_URL1 = 'https://api.eunhamirror.repl.co/api'
+#TORRENT_API_URL = 'https://api.eunhamirror.repl.co/api'
+TORRENT_API_URL1 = 'https://api.linkstore.eu.org/api'
 
 torrents_dict = {
     '1337x1': {'source': f"{TORRENT_API_URL1}/1337x/", 'result_str': RESULT_STR_1337},
@@ -340,7 +340,7 @@ def searchhelp(update, context):
 ★ /nyaasi1 <i>[search name]</i>
 ★ /sukebei1 <i>[search name]</i>
 
-<b>Example :</b> <code>/nyaasi1 search name</code>
+<b>Example :</b> <code>/nyaasi search name</code>
 
 <b>✥═══ @Mani5GRockers ═══✥</b>
 '''
