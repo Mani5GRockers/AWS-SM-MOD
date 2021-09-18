@@ -361,15 +361,13 @@ watch - Mirror Youtube-dl supported link
 tarwatch - Mirror Youtube playlist link and upload as .tar
 zipwatch - Mirror Youtube playlist link and upload as .zip
 status - Get Mirror Status message
+stats - Bot Usage Stats
 search -  [Name] Searches files in Drive
 cancel - Cancel a task
 cancelall - Cancel all tasks
-del - [drive_url] Delete file from Drive
-log - Get the Bot Log [owner/sudo only]
-shell - Run commands in Shell [owner only]
 restart - Restart the Bot [owner/sudo only]
-stats - Bot Usage Stats
-ping - Ping the Bot
+tshelp - Torrent Search File Name
+tshelp1 - Torrent Search1 File Name
 ```
 
 ## Getting Google OAuth API credential file
