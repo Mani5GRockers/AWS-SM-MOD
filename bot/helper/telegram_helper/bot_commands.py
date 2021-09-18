@@ -33,6 +33,6 @@ class _BotCommands:
         self.ShellCommand = 'shell'
         self.ExecHelpCommand = 'exechelp'
         self.TsHelpCommand = 'tshelp'
-        self.TsHelp1Command = 'tshelp1'
+        self.TsHelp1Command = 'torrent_search'
 
 BotCommands = _BotCommands()
