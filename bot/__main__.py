@@ -17,7 +17,7 @@ from bot.helper.telegram_helper.message_utils import *
 from .helper.ext_utils.bot_utils import get_readable_file_size, get_readable_time
 from .helper.telegram_helper.filters import CustomFilters
 from bot.helper.telegram_helper import button_build
-from .modules import authorize, list, cancel_mirror, mirror_status, mirror, clone, watch, shell, eval, torrent_search, delete, speedtest, count
+from .modules import authorize, list, cancel_mirror, mirror_status, mirror, clone, watch, shell, eval, torrent_search, torrent_searchs, delete, speedtest, count
 
 
 def stats(update, context):
@@ -158,6 +158,8 @@ help_string = f'''
 /{BotCommands.ExecHelpCommand}: Get help for Executor module (Only Owner)
 
 /{BotCommands.TsHelpCommand}: Get help for Torrent search module
+
+/{BotCommands.TsHelp1Command}: Get help for Torrent search module
 '''
 
 def bot_help(update, context):
@@ -191,7 +193,8 @@ botcmds = [
         (f'{BotCommands.PingCommand}','★ Ping the Bot ★'),
         (f'{BotCommands.RestartCommand}','★ Restart the bot [owner/sudo only] ★'),
         (f'{BotCommands.LogCommand}','★ Get the Bot Log [owner/sudo only] ★'),
-        (f'{BotCommands.TsHelpCommand}','★ Get help for Torrent search module ★')
+        (f'{BotCommands.TsHelpCommand}','★ Get help for Torrent search name ★')
+        (f'{BotCommands.TsHelp1Command}','★ Get help for Torrent1 search name ★')
     ]
 '''
 
