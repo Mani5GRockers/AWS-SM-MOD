@@ -36,7 +36,7 @@ async def return_search(query, page=1, sukebei=False):
         if (time.time() - get_time) > 3600:
             results = []
             async with aiohttp.ClientSession() as session:
-                async with session.get(f'https://{"sukebei." if sukebei1 else ""}nyaa.si/?page=rss&q={urlencode(query)}') as resp:
+                async with session.get(f'https://{"sukebei." if sukebei else ""}nyaa.si/?page=rss&q={urlencode(query)}') as resp:
                     d = feedparser.parse(await resp.text())
             text = ''
             a = 0
