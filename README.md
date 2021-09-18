@@ -83,6 +83,92 @@ restart1 - ★ ♻️ Restart the Bot [owner/sudo only] ★
 tshelp1 - ★ 🧲 Torrent Search File Name ★
 tshelp11 - ★ 🧲 Torrent Search1 File Name ★ 
 ```   
+```     
+STATS_COMMAND = 'stats'
+MIRROR_COMMAND = 'mirror'
+UNZIPMIRROR_COMMAND = 'unzip'
+ZIPMIRROR_COMMAND = 'zip'
+TARMIRROR_COMMAND = 'tar'
+QBMIRROR_COMMAND = 'qbmirror'
+QBUNZIPMIRROR_COMMAND = 'qbunzip'
+QBZIPMIRROR_COMMAND = 'qbzip'
+QBTARMIRROR_COMMAND = 'qbtar'
+CANCELMIRROR_COMMAND = 'cancel'
+CANCELALL_COMMAND = 'cancelall'
+STATUS_COMMAND = 'status'
+RESTART_COMMAND = 'restart'
+HELP_COMMAND = 'help'
+LOG_COMMAND = 'log'
+CLONE_COMMAND = 'clone'
+COUNT_COMMAND = 'count'
+WATCH_COMMAND = 'watch'
+ZIPWATCH_COMMAND = 'zipwatch'
+TARWATCH_COMMAND = 'tarwatch'
+DELETE_COMMAND = 'del'
+SHELL_COMMAND = 'shell'
+EXECHELP_COMMAND = 'exechelp'
+TSHELP_COMMAND = 'tshelp'
+TSHELP1_COMMAND = 'tshelp1'
+RMSUDO_COMMAND = 'rmsudo'
+ADDSUDO_COMMAND = 'addsudo'
+AUTHORIZEDUSERS_COMMAND = 'alluser'
+AUTHORIZE_COMMAND = 'auth'
+UNAUTHORIZE_COMMAND = 'unauth'
+LIST_COMMAND = 'search'
+SPEED_COMMAND = 'speedtest'
+PING_COMMAND = 'ping'
+START_COMMAND = 'start'  
+ ```   
+```   
+import os
+
+def getCommand(name: str, command: str):
+    try:
+        if len(os.environ[name]) == 0:
+            raise KeyError
+        return os.environ[name]
+    except KeyError:
+        return command
+class _BotCommands:
+    def __init__(self):
+        self.StartCommand = getCommand('START_COMMAND', 'starts')
+        self.MirrorCommand = getCommand('MIRROR_COMMAND', 'mirrors')
+        self.UnzipMirrorCommand = getCommand('UNZIPMIRROR_COMMAND', 'unzipmirror')
+        self.TarMirrorCommand = getCommand('TARMIRROR_COMMAND', 'tarmirror')
+        self.ZipMirrorCommand = getCommand('ZIPMIRROR_COMMAND', 'zipmirror')
+        self.CancelMirror = getCommand('CANCELMIRROR_COMMAND', 'cancels')
+        self.CancelAllCommand = getCommand('CANCELALL_COMMAND', 'cancelalls')
+        self.ListCommand = getCommand('LIST_COMMAND', 'searchs')
+        self.StatusCommand = getCommand('STATUS_COMMAND', 'statuss')
+        self.AuthorizedUsersCommand = getCommand('AUTHORIZEDUSERS_COMMAND', 'allusers')
+        self.AuthorizeCommand = getCommand('AUTHORIZE_COMMAND', 'auths')
+        self.UnAuthorizeCommand = getCommand('UNAUTHORIZE_COMMAND', 'unauths')
+        self.AddSudoCommand = getCommand('ADDSUDO_COMMAND', 'addsudos')
+        self.RmSudoCommand = getCommand('RMSUDO_COMMAND', 'rmsudos')
+        self.PingCommand = getCommand('PING_COMMAND', 'pings')
+        self.RestartCommand = getCommand('RESTART_COMMAND', 'restarts')
+        self.StatsCommand = getCommand('STATS_COMMAND', 'statss')
+        self.HelpCommand = getCommand('HELP_COMMAND', 'helps')
+        self.LogCommand = getCommand('LOG_COMMAND', 'logs')
+        self.SpeedCommand = getCommand('SPEED_COMMAND', 'speedtests')
+        self.CloneCommand = getCommand('CLONE_COMMAND', 'clones')
+        self.CountCommand = getCommand('COUNT_COMMAND', 'counts')
+        self.WatchCommand = getCommand('WATCH_COMMAND', 'watchs')
+        self.TarWatchCommand = getCommand('TARWATCH_COMMAND', 'tarwatchs')
+        self.ZipWatchCommand = getCommand('ZIPWATCH_COMMAND', 'zipwatches')
+        self.QbMirrorCommand = getCommand('QBMIRROR_COMMAND', 'qbmirrors')
+        self.QbUnzipMirrorCommand = getCommand('QBUNZIPMIRROR_COMMAND', 'qbunzipmirrors')
+        self.QbTarMirrorCommand = getCommand('QBTARMIRROR_COMMAND', 'qbtarmirrors')
+        self.QbZipMirrorCommand = getCommand('QBZIPMIRROR_COMMAND', 'qbzipmirrors')
+        self.DeleteCommand = getCommand('DELETE_COMMAND', 'dels')
+        self.ShellCommand = getCommand('SHELL_COMMAND', 'shells')
+        self.ExecHelpCommand = getCommand('EXECHELP_COMMAND', 'exechelps')
+        self.TsHelpCommand = getCommand('TSHELP_COMMAND', 'tshelps')
+        self.TsHelp1Command = getCommand('TSHELP1_COMMAND', 'tshelpss')
+
+BotCommands = _BotCommands()  
+```   
+  
 ## Deploying on Heroku using Ubuntu:
 
 - Install [Heroku cli](https://devcenter.heroku.com/articles/heroku-cli)
