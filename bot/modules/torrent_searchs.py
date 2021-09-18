@@ -27,10 +27,10 @@ from bot.helper.telegram_helper.message_utils import sendMessage
 search_lock = asyncio.Lock()
 search_info = {False: dict(), True: dict()}
 
-async def return_search(query, page=1, sukebei=False):
+async def return_search(query, page=1, sukebei1=False):
     page -= 1
     query = query.lower().strip()
-    used_search_info = search_info[sukebei]
+    used_search_info = search_info[sukebei1]
     async with search_lock:
         results, get_time = used_search_info.get(query, (None, 0))
         if (time.time() - get_time) > 3600:
@@ -73,22 +73,22 @@ async def return_search(query, page=1, sukebei=False):
 message_info = dict()
 ignore = set()
 
-@app.on_message(filters.command(['nyaasi1', f'nyaasi@{bot.username}']))
+@app.on_message(filters.command(['nyaasi1', f'nyaasi1@{bot.username}']))
 async def nyaa_search(client, message):
     text = message.text.split(' ')
     text.pop(0)
     query = ' '.join(text)
     await init_search(client, message, query, False)
 
-@app.on_message(filters.command(['sukebei1', f'sukebei@{bot.username}']))
-async def nyaa_search_sukebei(client, message):
+@app.on_message(filters.command(['sukebei1', f'sukebei1@{bot.username}']))
+async def nyaa_search_sukebei1(client, message):
     text = message.text.split(' ')
     text.pop(0)
     query = ' '.join(text)
     await init_search(client, message, query, True)
 
-async def init_search(client, message, query, sukebei):
-    result, pages, ttl = await return_search(query, sukebei=sukebei)
+async def init_search(client, message, query, sukebei1):
+    result, pages, ttl = await return_search(query, sukebei1=sukebei1)
     if not result:
         await message.reply_text('🧲 No Results Found ❗️')
     else:
@@ -98,7 +98,7 @@ async def init_search(client, message, query, sukebei):
         reply = await message.reply_text(result, reply_markup=InlineKeyboardMarkup([
             buttons 
         ]))
-        message_info[(reply.chat.id, reply.message_id)] = message.from_user.id, ttl, query, 1, pages, sukebei
+        message_info[(reply.chat.id, reply.message_id)] = message.from_user.id, ttl, query, 1, pages, sukebei1
 
 @app.on_callback_query(custom_filters.callback_data('nyaa_nop'))
 async def nyaa_nop(client, callback_query):
@@ -114,7 +114,7 @@ async def nyaa_callback(client, callback_query):
         if message_identifier in ignore:
             await callback_query.answer()
             return
-        user_id, ttl, query, current_page, pages, sukebei = message_info.get(message_identifier, (None, 0, None, 0, 0, None))
+        user_id, ttl, query, current_page, pages, sukebei1 = message_info.get(message_identifier, (None, 0, None, 0, 0, None))
         og_current_page = current_page
         if data == 'nyaa_back':
             current_page -= 1
@@ -131,7 +131,7 @@ async def nyaa_callback(client, callback_query):
             if callback_query.from_user.id != user_id:
                 await callback_query.answer('...no', cache_time=3600)
                 return
-            text, pages, ttl = await return_search(query, current_page, sukebei)
+            text, pages, ttl = await return_search(query, current_page, sukebei1)
         buttons = [InlineKeyboardButton(f'Prev', 'nyaa_back'), InlineKeyboardButton(f'{current_page}/{pages}', 'nyaa_nop'), InlineKeyboardButton(f'Next', 'nyaa_next')]
         if ttl_ended:
             buttons = [InlineKeyboardButton('Search Expired', 'nyaa_nop')]
@@ -144,7 +144,7 @@ async def nyaa_callback(client, callback_query):
             await callback_query.edit_message_text(text, reply_markup=InlineKeyboardMarkup([
                 buttons
             ]))
-        message_info[message_identifier] = user_id, ttl, query, current_page, pages, sukebei
+        message_info[message_identifier] = user_id, ttl, query, current_page, pages, sukebei1
         if ttl_ended:
             ignore.add(message_identifier)
     await callback_query.answer()
