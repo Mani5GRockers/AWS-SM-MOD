@@ -25,7 +25,7 @@ class _BotCommands:
         self.RmSudoCommand = getCommand('RMSUDO_COMMAND', 'rmsudo')
         self.PingCommand = getCommand('PING_COMMAND', 'ping')
         self.RestartCommand = getCommand('RESTART_COMMAND', 'restarts')
-        self.StatsCommand = getCommand('STATS_COMMAND', 'stats')
+        self.StatsCommand = getCommand('STATS_COMMAND', 'statss')
         self.HelpCommand = getCommand('HELP_COMMAND', 'helps')
         self.LogCommand = getCommand('LOG_COMMAND', 'logs')
         self.SpeedCommand = getCommand('SPEED_COMMAND', 'speedtest')
