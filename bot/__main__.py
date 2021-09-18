@@ -193,7 +193,7 @@ botcmds = [
         (f'{BotCommands.PingCommand}','★ Ping the Bot ★'),
         (f'{BotCommands.RestartCommand}','★ Restart the bot [owner/sudo only] ★'),
         (f'{BotCommands.LogCommand}','★ Get the Bot Log [owner/sudo only] ★'),
-        (f'{BotCommands.TsHelpCommand}','★ Get help for Torrent search name ★')
+        (f'{BotCommands.TsHelpCommand}','★ Get help for Torrent search name ★'),
         (f'{BotCommands.TsHelp1Command}','★ Get help for Torrent1 search name ★')
     ]
 '''
