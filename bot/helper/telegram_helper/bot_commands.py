@@ -1,38 +1,48 @@
+import os
+
+def getCommand(name: str, command: str):
+    try:
+        if len(os.environ[name]) == 0:
+            raise KeyError
+        return os.environ[name]
+    except KeyError:
+        return command
 class _BotCommands:
     def __init__(self):
-        self.StartCommand = 'start'
-        self.MirrorCommand = 'mirror'
-        self.UnzipMirrorCommand = 'unzipmirror'
-        self.TarMirrorCommand = 'tarmirror'
-        self.ZipMirrorCommand = 'zipmirror'
-        self.CancelMirror = 'cancel'
-        self.CancelAllCommand = 'cancelall'
-        self.ListCommand = 'list'
-        self.StatusCommand = 'status'
-        self.AuthorizedUsersCommand = 'users'
-        self.AuthorizeCommand = 'authorize'
-        self.UnAuthorizeCommand = 'unauthorize'
-        self.AddSudoCommand = 'addsudo'
-        self.RmSudoCommand = 'rmsudo'
-        self.PingCommand = 'ping'
-        self.RestartCommand = 'restart'
-        self.StatsCommand = 'stats'
-        self.HelpCommand = 'help'
-        self.LogCommand = 'log'
-        self.SpeedCommand = 'speedtest'
-        self.CloneCommand = 'clone'
-        self.CountCommand = 'count'
-        self.WatchCommand = 'watch'
-        self.TarWatchCommand = 'tarwatch'
-        self.ZipWatchCommand = 'zipwatch'
-        self.QbMirrorCommand = 'qbmirror'
-        self.QbUnzipMirrorCommand = 'qbunzipmirror'
-        self.QbTarMirrorCommand = 'qbtarmirror'
-        self.QbZipMirrorCommand = 'qbzipmirror'
-        self.DeleteCommand = 'del'
-        self.ShellCommand = 'shell'
-        self.ExecHelpCommand = 'exechelp'
-        self.TsHelpCommand = 'tshelp'
-        self.TsHelp1Command = 'torrent_search'
+        self.StartCommand = getCommand('START_COMMAND', 'start')
+        self.MirrorCommand = getCommand('MIRROR_COMMAND', 'mirrors')
+        self.UnzipMirrorCommand = getCommand('UNZIPMIRROR_COMMAND', 'unzipmirror')
+        self.TarMirrorCommand = getCommand('TARMIRROR_COMMAND', 'tarmirror')
+        self.ZipMirrorCommand = getCommand('ZIPMIRROR_COMMAND', 'zipmirror')
+        self.CancelMirror = getCommand('CANCELMIRROR_COMMAND', 'cancels')
+        self.CancelAllCommand = getCommand('CANCELALL_COMMAND', 'cancelalls')
+        self.ListCommand = getCommand('LIST_COMMAND', 'search')
+        self.StatusCommand = getCommand('STATUS_COMMAND', 'statuss')
+        self.AuthorizedUsersCommand = getCommand('AUTHORIZEDUSERS_COMMAND', 'alluser')
+        self.AuthorizeCommand = getCommand('AUTHORIZE_COMMAND', 'auth')
+        self.UnAuthorizeCommand = getCommand('UNAUTHORIZE_COMMAND', 'unauth')
+        self.AddSudoCommand = getCommand('ADDSUDO_COMMAND', 'addsudo')
+        self.RmSudoCommand = getCommand('RMSUDO_COMMAND', 'rmsudo')
+        self.PingCommand = getCommand('PING_COMMAND', 'ping')
+        self.RestartCommand = getCommand('RESTART_COMMAND', 'restarts')
+        self.StatsCommand = getCommand('STATS_COMMAND', 'statss')
+        self.HelpCommand = getCommand('HELP_COMMAND', 'helps')
+        self.LogCommand = getCommand('LOG_COMMAND', 'logs')
+        self.SpeedCommand = getCommand('SPEED_COMMAND', 'speedtest')
+        self.CloneCommand = getCommand('CLONE_COMMAND', 'clones')
+        self.CountCommand = getCommand('COUNT_COMMAND', 'counts')
+        self.WatchCommand = getCommand('WATCH_COMMAND', 'watchs')
+        self.TarWatchCommand = getCommand('TARWATCH_COMMAND', 'tarwatchs')
+        self.ZipWatchCommand = getCommand('ZIPWATCH_COMMAND', 'zipwatches')
+        self.QbMirrorCommand = getCommand('QBMIRROR_COMMAND', 'qbmirrors')
+        self.QbUnzipMirrorCommand = getCommand('QBUNZIPMIRROR_COMMAND', 'qbunzipmirrors')
+        self.QbTarMirrorCommand = getCommand('QBTARMIRROR_COMMAND', 'qbtarmirrors')
+        self.QbZipMirrorCommand = getCommand('QBZIPMIRROR_COMMAND', 'qbzipmirrors')
+        self.DeleteCommand = getCommand('DELETE_COMMAND', 'dels')
+        self.ShellCommand = getCommand('SHELL_COMMAND', 'shells')
+        self.ExecHelpCommand = getCommand('EXECHELP_COMMAND', 'exechelps')
+        self.TsHelpCommand = getCommand('TSHELP_COMMAND', 'tshelps')
+        self.TsHelp1Command = getCommand('TSHELP1_COMMAND', 'tshelpss')
+
 
 BotCommands = _BotCommands()
