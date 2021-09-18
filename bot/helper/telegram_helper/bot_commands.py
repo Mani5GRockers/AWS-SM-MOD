@@ -44,5 +44,4 @@ class _BotCommands:
         self.TsHelpCommand = getCommand('TSHELP_COMMAND', 'tshelps')
         self.TsHelp1Command = getCommand('TSHELP1_COMMAND', 'tshelpss')
 
-
 BotCommands = _BotCommands()
