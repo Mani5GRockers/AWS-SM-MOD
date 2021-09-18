@@ -36,7 +36,7 @@ async def return_search(query, page=1, sukebei=False):
         if (time.time() - get_time) > 3600:
             results = []
             async with aiohttp.ClientSession() as session:
-                async with session.get(f'https://{"sukebei." if sukebei else ""}nyaa.si/?page=rss&q={urlencode(query)}') as resp:
+                async with session.get(f'https://{"sukebei." if sukebei1 else ""}nyaa.si/?page=rss&q={urlencode(query)}') as resp:
                     d = feedparser.parse(await resp.text())
             text = ''
             a = 0
@@ -73,14 +73,14 @@ async def return_search(query, page=1, sukebei=False):
 message_info = dict()
 ignore = set()
 
-@app.on_message(filters.command(['nyaasi1', f'nyaasi@{bot.username}']))
+@app.on_message(filters.command(['nyaasi1', f'nyaasi1@{bot.username}']))
 async def nyaa_search(client, message):
     text = message.text.split(' ')
     text.pop(0)
     query = ' '.join(text)
     await init_search(client, message, query, False)
 
-@app.on_message(filters.command(['sukebei1', f'sukebei@{bot.username}']))
+@app.on_message(filters.command(['sukebei1', f'sukebei1@{bot.username}']))
 async def nyaa_search_sukebei(client, message):
     text = message.text.split(' ')
     text.pop(0)
