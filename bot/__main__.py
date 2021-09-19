@@ -101,9 +101,9 @@ def log(update, context):
 
 help_string_telegraph = f'''
     \n🎀 AWS MIRROR ZONE Help 🎀 
-    
+<br><br>
     ✥═══ @awsmirrorzone ═══✥
-    
+<br><br>
 <b>★ /{BotCommands.HelpCommand}</b>: To get this message
 <br><br>
 <b>★ /{BotCommands.MirrorCommand}</b> [download_url][magnet_link]: Start mirroring the link to Google Drive.
@@ -143,7 +143,7 @@ help_string_telegraph = f'''
 <b>★ /{BotCommands.StatusCommand}</b>: Shows a status of all the downloads
 <br><br>
 <b>★ /{BotCommands.StatsCommand}</b>: Show Stats of the machine the bot is hosted on
-
+<br><br>
    ✥═══ @Mani5GRockers ═══✥
 '''
 help = Telegraph(access_token=telegraph_token).create_page(
