@@ -31,32 +31,47 @@ def stats(update, context):
     cpuUsage = psutil.cpu_percent(interval=0.5)
     memory = psutil.virtual_memory().percent
     disk = psutil.disk_usage('/').percent
-    stats = f'<b>Bot Uptime:</b> <code>{currentTime}</code>\n' \
-            f'<b>Total Disk Space:</b> <code>{total}</code>\n' \
-            f'<b>Used:</b> <code>{used}</code> ' \
-            f'<b>Free:</b> <code>{free}</code>\n\n' \
-            f'<b>Upload:</b> <code>{sent}</code>\n' \
-            f'<b>Download:</b> <code>{recv}</code>\n\n' \
-            f'<b>CPU:</b> <code>{cpuUsage}%</code> ' \
-            f'<b>RAM:</b> <code>{memory}%</code> ' \
-            f'<b>DISK:</b> <code>{disk}%</code>'
+    stats = f'<b>╭──「  🚦 BOT STATISTICS 🚦 」 </b>\n' \
+            f'<b>│</b>\n' \
+            f'<b>├  ⏰ Bot Uptime :</b> <code>{currentTime}</code>\n' \
+            f'<b>├  🗄 Total Disk :</b> <code>{total}</code>\n' \
+            f'<b>├  🗂 Total Used :</b> <code>{used}</code> ' \
+            f'<b>├  📂 Total Free :</b> <code>{free}</code>\n\n' \
+            f'<b>│</b>\n' \
+            f'<b>├  📝 Data Usage 📝</b>\n' \
+            f'<b>│</b>\n' \
+            f'<b>├  📥 Total Download :</b> <code>{recv}</code>\n\n' \
+            f'<b>├  📤 Total Upload :</b> <code>{sent}</code>\n' \
+            f'<b>├  🖥️ CPU :</b> <code>{cpuUsage}%</code> ' \
+            f'<b>├  🚀 RAM :</b> <code>{memory}%</code> ' \
+            f'<b>├  🗄 DISK :</b> <code>{disk}%</code>'
+            f'<b>│</b>\n' \
+            f'<b>╰──「 👨‍💻 @Mani5GRockers 👨‍💻 」</b>'
     sendMessage(stats, context.bot, update)
 
 
 def start(update, context):
     buttons = button_build.ButtonMaker()
-    buttons.buildbutton("Repo", "https://github.com/Mani5GRockers")
-    buttons.buildbutton("Channel", "https://telegram.me/awsmirrorzone")
-    reply_markup = InlineKeyboardMarkup(buttons.build_menu(2))
+    buttons.buildbutton("Ⓜ️ ᴍɪʀʀᴏʀ ɢʀᴏᴜᴘ Ⓜ️", "https://t.me/awsmirrorzone")
+    buttons.buildbutton("🦸 Chat ᴍɪʀʀᴏʀ ɢʀᴏᴜᴘ 🦸‍♂️", "https://awslink.in/awsmirrorzone-support")
+    buttons.buildbutton("⚙️ AWS BOT List ⚙️", "http://t.me/mani5grockersbot")
+    buttons.buildbutton("🌐 Website 🌐", "https://bitly.awslink.in/mani5grockers")
+    reply_markup = InlineKeyboardMarkup(buttons.build_menu(4))
     if CustomFilters.authorized_user(update) or CustomFilters.authorized_chat(update):
         start_string = f'''
 This bot can mirror all your links to Google Drive!
+
+👲 Modded By: @Mani5GRockers
+
 Type /{BotCommands.HelpCommand} to get a list of available commands
 '''
+        if update.message.chat.type == "private" :
+            sendMessage(f"👤 Hey I'm AWS MIRROR BOT 👤\n\n➩ JOIN GROUP List 🏆 \n\n ✅ JOIN AWS MIRROR ZONE ✅ \n\n ✥════ @awsmirrorzone ════✥ \n\n ✅ AWS MIRROR ZONE Discussion ✅ \n\n ✥════ @aws_public_chat ════✥ \n\n👩‍⚕ Bot Developer by 👨‍⚕️   👇\n\n✥════ @Mani5GRockers ════✥ \n\n /help - How To use This Group", context.bot, update)
+        else :
         sendMarkup(start_string, context.bot, update, reply_markup)
     else:
         sendMarkup(
-            'This bot can mirror all your links to Google Drive!\nPlease Join <b>aws-mirrorzone-group</b>.',
+            '🔒 Oops! not a Authorized user.\n🔐 Please contact Bot developer 👉 <b>@Mani5GRockers</b>.',
             context.bot,
             update,
             reply_markup,
@@ -86,80 +101,92 @@ def log(update, context):
     sendLogFile(context.bot, update)
 
 
-help_string_telegraph = f'''<br>
-<b>/{BotCommands.HelpCommand}</b>: To get this message
+help_string_telegraph = f'''
+    \n🎀 AWS MIRROR ZONE Help 🎀 
+    
+    ✥═══ @awsmirrorzone ═══✥
+    
+<b>★ /{BotCommands.HelpCommand}</b>: To get this message
 <br><br>
-<b>/{BotCommands.MirrorCommand}</b> [download_url][magnet_link]: Start mirroring the link to Google Drive.
+<b>★ /{BotCommands.MirrorCommand}</b> [download_url][magnet_link]: Start mirroring the link to Google Drive.
 <br><br>
-<b>/{BotCommands.TarMirrorCommand}</b> [download_url][magnet_link]: Start mirroring and upload the archived (.tar) version of the download
+<b>★ /{BotCommands.TarMirrorCommand}</b> [download_url][magnet_link]: Start mirroring and upload the archived (.tar) version of the download
 <br><br>
-<b>/{BotCommands.ZipMirrorCommand}</b> [download_url][magnet_link]: Start mirroring and upload the archived (.zip) version of the download
+<b>★ /{BotCommands.ZipMirrorCommand}</b> [download_url][magnet_link]: Start mirroring and upload the archived (.zip) version of the download
 <br><br>
-<b>/{BotCommands.UnzipMirrorCommand}</b> [download_url][magnet_link]: Starts mirroring and if downloaded file is any archive, extracts it to Google Drive
+<b>★ /{BotCommands.UnzipMirrorCommand}</b> [download_url][magnet_link]: Starts mirroring and if downloaded file is any archive, extracts it to Google Drive
 <br><br>
-<b>/{BotCommands.QbMirrorCommand}</b> [magnet_link]: Start Mirroring using qBittorrent, Use <b>/{BotCommands.QbMirrorCommand} s</b> to select files before downloading
+<b>★ /{BotCommands.QbMirrorCommand}</b> [magnet_link]: Start Mirroring using qBittorrent, Use <b>/{BotCommands.QbMirrorCommand} s</b> to select files before downloading
 <br><br>
-<b>/{BotCommands.QbTarMirrorCommand}</b> [magnet_link]: Start mirroring using qBittorrent and upload the archived (.tar) version of the download
+<b>★ /{BotCommands.QbTarMirrorCommand}</b> [magnet_link]: Start mirroring using qBittorrent and upload the archived (.tar) version of the download
 <br><br>
-<b>/{BotCommands.QbZipMirrorCommand}</b> [magnet_link]: Start mirroring using qBittorrent and upload the archived (.zip) version of the download
+<b>★ /{BotCommands.QbZipMirrorCommand}</b> [magnet_link]: Start mirroring using qBittorrent and upload the archived (.zip) version of the download
 <br><br>
-<b>/{BotCommands.QbUnzipMirrorCommand}</b> [magnet_link]: Starts mirroring using qBittorrent and if downloaded file is any archive, extracts it to Google Drive
+<b>★ /{BotCommands.QbUnzipMirrorCommand}</b> [magnet_link]: Starts mirroring using qBittorrent and if downloaded file is any archive, extracts it to Google Drive
 <br><br>
-<b>/{BotCommands.CloneCommand}</b> [drive_url]: Copy file/folder to Google Drive
+<b>★ /{BotCommands.CloneCommand}</b> [drive_url]: Copy file/folder to Google Drive
 <br><br>
-<b>/{BotCommands.CountCommand}</b> [drive_url]: Count file/folder of Google Drive Links
+<b>★ /{BotCommands.CountCommand}</b> [drive_url]: Count file/folder of Google Drive Links
 <br><br>
-<b>/{BotCommands.DeleteCommand}</b> [drive_url]: Delete file from Google Drive (Only Owner & Sudo)
+<b>★ /{BotCommands.DeleteCommand}</b> [drive_url]: Delete file from Google Drive (Only Owner & Sudo)
 <br><br>
-<b>/{BotCommands.WatchCommand}</b> [youtube-dl supported link]: Mirror through youtube-dl. Click <b>/{BotCommands.WatchCommand}</b> for more help
+<b>★ /{BotCommands.WatchCommand}</b> [youtube-dl supported link]: Mirror through youtube-dl. Click <b>/{BotCommands.WatchCommand}</b> for more help
 <br><br>
-<b>/{BotCommands.TarWatchCommand}</b> [youtube-dl supported link]: Mirror through youtube-dl and tar before uploading
+<b>★ /{BotCommands.TarWatchCommand}</b> [youtube-dl supported link]: Mirror through youtube-dl and tar before uploading
 <br><br>
-<b>/{BotCommands.ZipWatchCommand}</b> [youtube-dl supported link]: Mirror through youtube-dl and zip before uploading
+<b>★ /{BotCommands.ZipWatchCommand}</b> [youtube-dl supported link]: Mirror through youtube-dl and zip before uploading
 <br><br>
-<b>/{BotCommands.CancelMirror}</b>: Reply to the message by which the download was initiated and that download will be cancelled
+<b>★ /{BotCommands.CancelMirror}</b>: Reply to the message by which the download was initiated and that download will be cancelled
 <br><br>
-<b>/{BotCommands.CancelAllCommand}</b>: Cancel all running tasks
+<b>★ /{BotCommands.CancelAllCommand}</b>: Cancel all running tasks
 <br><br>
-<b>/{BotCommands.ListCommand}</b> [search term]: Searches the search term in the Google Drive, If found replies with the link
+<b>★ /{BotCommands.ListCommand}</b> [search term]: Searches the search term in the Google Drive, If found replies with the link
 <br><br>
-<b>/{BotCommands.StatusCommand}</b>: Shows a status of all the downloads
+<b>★ /{BotCommands.StatusCommand}</b>: Shows a status of all the downloads
 <br><br>
-<b>/{BotCommands.StatsCommand}</b>: Show Stats of the machine the bot is hosted on
+<b>★ /{BotCommands.StatsCommand}</b>: Show Stats of the machine the bot is hosted on
+
+   ✥═══ @Mani5GRockers ═══✥
 '''
 help = Telegraph(access_token=telegraph_token).create_page(
         title='AWS Mirror Zonebot Help',
-        author_name='Mani5GRockers',
+        author_name='❤️ Mani5GRockers ❤️',
         author_url='https://github.com/Mani5GRockers',
         html_content=help_string_telegraph,
     )["path"]
 
 help_string = f'''
-/{BotCommands.PingCommand}: Check how long it takes to Ping the Bot
+    \n🎀 AWS MIRROR ZONE Help 🎀
+    
+    ✥═══ @awsmirrorzone ═══✥
+    
+★ /{BotCommands.PingCommand}: Check how long it takes to Ping the Bot
 
-/{BotCommands.AuthorizeCommand}: Authorize a chat or a user to use the bot (Can only be invoked by Owner & Sudo of the bot)
+★ /{BotCommands.AuthorizeCommand}: Authorize a chat or a user to use the bot (Can only be invoked by Owner & Sudo of the bot)
 
-/{BotCommands.UnAuthorizeCommand}: Unauthorize a chat or a user to use the bot (Can only be invoked by Owner & Sudo of the bot)
+★ /{BotCommands.UnAuthorizeCommand}: Unauthorize a chat or a user to use the bot (Can only be invoked by Owner & Sudo of the bot)
 
-/{BotCommands.AuthorizedUsersCommand}: Show authorized users (Only Owner & Sudo)
+★ /{BotCommands.AuthorizedUsersCommand}: Show authorized users (Only Owner & Sudo)
 
-/{BotCommands.AddSudoCommand}: Add sudo user (Only Owner)
+★ /{BotCommands.AddSudoCommand}: Add sudo user (Only Owner)
 
-/{BotCommands.RmSudoCommand}: Remove sudo users (Only Owner)
+★ /{BotCommands.RmSudoCommand}: Remove sudo users (Only Owner)
 
-/{BotCommands.RestartCommand}: Restart the bot
+★ /{BotCommands.RestartCommand}: Restart the bot
 
-/{BotCommands.LogCommand}: Get a log file of the bot. Handy for getting crash reports
+★ /{BotCommands.LogCommand}: Get a log file of the bot. Handy for getting crash reports
 
-/{BotCommands.SpeedCommand}: Check Internet Speed of the Host
+★ /{BotCommands.SpeedCommand}: Check Internet Speed of the Host
 
-/{BotCommands.ShellCommand}: Run commands in Shell (Only Owner)
+★ /{BotCommands.ShellCommand}: Run commands in Shell (Only Owner)
 
-/{BotCommands.ExecHelpCommand}: Get help for Executor module (Only Owner)
+★ /{BotCommands.ExecHelpCommand}: Get help for Executor module (Only Owner)
 
-/{BotCommands.TsHelpCommand}: Get help for Torrent search module
+★ /{BotCommands.TsHelpCommand}: Get help for Torrent search module
 
-/{BotCommands.TsHelp1Command}: Get help for Torrent search module
+★ /{BotCommands.TsHelp1Command}: Get help for Torrent search module
+
+✥═══ @Mani5GRockers ═══✥
 '''
 
 def bot_help(update, context):
@@ -169,6 +196,13 @@ def bot_help(update, context):
     sendMarkup(help_string, context.bot, update, reply_markup)
 
 '''
+
+    if CustomFilters.sudo_user(update) or CustomFilters.owner_filter(update):
+        sendMessage(help_string_adm, context.bot, update)
+    else:
+        sendMessage(help_string, context.bot, update)
+
+
 botcmds = [
         (f'{BotCommands.HelpCommand}','★ Get Detailed Help ★'),
         (f'{BotCommands.MirrorCommand}', '★ Start Mirroring ★'),
@@ -193,7 +227,7 @@ botcmds = [
         (f'{BotCommands.PingCommand}','★ Ping the Bot ★'),
         (f'{BotCommands.RestartCommand}','♻️ Restart the bot [owner/sudo only] ★'),
         (f'{BotCommands.LogCommand}','★ Get the Bot Log [owner/sudo only] ★'),
-        (f'{BotCommands.TsHelpCommand}','🧲 Get help for Torrent search name ★'),
+        (f'{BotCommands.TsHelpCommand}','🧲 help for Torrent search:  1337x, piratebay, tgx, yts, eztv, nyaa.si, sukebei, torlock, rarbg, ts  ★'),
         (f'{BotCommands.TsHelp1Command}','🧲 Get help for Torrent1 search name ★')
     ]
 '''
