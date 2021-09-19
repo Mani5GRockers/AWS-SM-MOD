@@ -408,7 +408,7 @@ class GoogleDriveHelper:
                     msg = self.deletefile(durl)
                     LOGGER.info(f"{msg}")
                     return "your clone has been stopped and cloned data has been deleted!", "cancelled"
-                msg += f'<b>🗂 𝗙𝗶𝗹𝗲𝗡𝗮𝗺𝗲 : </b><code>{meta.get("name")}</code>\n<b>🗂 File 𝐒𝐢𝐳𝐞 : </b><code>〘{get_readable_file_size(self.transferred_size)}〙</code>'
+                msg += f'<b>🗂 𝗙𝗶𝗹𝗲𝗡𝗮𝗺𝗲 : </b><code>{meta.get("name")}</code>\n\n<b>🗂 File 𝐒𝐢𝐳𝐞 : </b><code>〘{get_readable_file_size(self.transferred_size)}〙</code>'
                 msg += '\n<b>⚙️ 𝐓𝐲𝐩𝐞 : </b><code>Folder</code>'
                 msg += f'\n<b>📚 𝐒𝐮𝐛𝐅𝐨𝐥𝐝𝐞𝐫𝐬 : </b><code>〘{self.total_folders}〙</code>'
                 msg += f'\n<b>📁 𝐅𝐢𝐥𝐞𝐬 : </b><code>〘{self.total_files}〙</code>'
