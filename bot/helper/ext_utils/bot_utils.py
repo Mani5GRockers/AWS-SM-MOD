@@ -148,18 +148,18 @@ def get_readable_message():
                             f", <b>⏳ 𝐄𝐓𝐀 :</b> <code>〘{download.eta()}〙</code> "
                     # if hasattr(download, 'is_torrent'):
                     try:
-                        msg += f"\n<b>👤 𝐒𝐞𝐞𝐝𝐞𝐫𝐬 :</b> <code>〘{download.aria_download().num_seeders}〙</code>" \
-                            f" | <b>🔄 𝐏𝐞𝐞𝐫𝐬 :</b> <code>〘{download.aria_download().connections}〙</code>"
+                        msg += f"\n<b>👤 𝐒𝐞𝐞𝐝𝐞𝐫𝐬 :</b> <code>〘{download.aria_download().num_seeders}〙</code>" 
+                        msg += f"\n<b>🔄 𝐏𝐞𝐞𝐫𝐬 :</b> <code>〘{download.aria_download().connections}〙</code>"
                     except:
                         pass
                     try:
-                        msg += f"\n<b>👤 𝐒𝐞𝐞𝐝𝐞𝐫𝐬 :</b> <code>〘{download.torrent_info().num_seeds}〙</code>" \
-                            f" | <b>🔄 Leechers :</b> <code>〘{download.torrent_info().num_leechs}〙</code>"
+                        msg += f"\n<b>👤 𝐒𝐞𝐞𝐝𝐞𝐫𝐬 :</b> <code>〘{download.torrent_info().num_seeds}〙</code>" 
+                        msg += f"\n<b>🔄 Leechers :</b> <code>〘{download.torrent_info().num_leechs}〙</code>"
                     except:
                         pass
-                    msg += f'\n<b>👨 User : 👉 </b> <a href="tg://user?id={download.message.from_user.id}">〘{download.message.from_user.first_name}〙</a> (<code>{download.message.from_user.id}</code>)'
+                    msg += f'\n<b>👨 User : 👉</b> <a href="tg://user?id={download.message.from_user.id}">〘{download.message.from_user.first_name}〙</a> (<code>{download.message.from_user.id}</code>)'
                     msg += f"\n<b>🚫 𝐓𝐨 𝐒𝐭𝐨𝐩 :</b> <code>/{BotCommands.CancelMirror} {download.gid()}</code>"
-                    msg += '\n\n✥═══ @Mani5GRockers ═══✥\n\n'
+                    msg += '\n\n✥══ @Mani5GRockers ══✥\n\n'
                 if STATUS_LIMIT is not None and INDEX >= COUNT + STATUS_LIMIT:
                     break
         if STATUS_LIMIT is not None:
