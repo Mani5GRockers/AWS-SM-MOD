@@ -91,8 +91,8 @@ def update_all_messages():
             	    uldl_bytes += float(speedy.split('K')[0]) * 1024
                 elif 'MB/s' in speedy:
                     uldl_bytes += float(speedy.split('M')[0]) * 1048576
-        #dlspeed = get_readable_file_size(dlspeed_bytes)
-        #ulspeed = get_readable_file_size(uldl_bytes)
+        dlspeed = get_readable_file_size(dlspeed_bytes)
+        ulspeed = get_readable_file_size(uldl_bytes)
         #msg += f"\n<b>FREE:</b> <code>{free}</code> | <b>UPTIME:</b> <code>{currentTime}</code>\n<b>DL:</b> <code>{dlspeed}/s</code> 🔻 | <b>UL:</b> <code>{ulspeed}/s</code> 🔺\n"
     with status_reply_dict_lock:
         for chat_id in list(status_reply_dict.keys()):
@@ -134,8 +134,8 @@ def sendStatusMessage(msg, bot):
             	    uldl_bytes += float(speedy.split('K')[0]) * 1024
                 elif 'MB/s' in speedy:
                     uldl_bytes += float(speedy.split('M')[0]) * 1048576
-        #dlspeed = get_readable_file_size(dlspeed_bytes)
-        #ulspeed = get_readable_file_size(uldl_bytes)
+        dlspeed = get_readable_file_size(dlspeed_bytes)
+        ulspeed = get_readable_file_size(uldl_bytes)
         #progress += f"\n<b>FREE:</b> <code>{free}</code> | <b>UPTIME:</b> <code>{currentTime}</code>\n<b>DL:</b> <code>{dlspeed}/s</code> 🔻 | <b>UL:</b> <code>{ulspeed}/s</code> 🔺\n"
     with status_reply_dict_lock:
         if msg.message.chat.id in list(status_reply_dict.keys()):
