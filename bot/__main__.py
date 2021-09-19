@@ -35,16 +35,19 @@ def stats(update, context):
             f'<b>│</b>\n' \
             f'<b>├  ⏰ Bot Uptime :</b> <code>{currentTime}</code>\n' \
             f'<b>├  🗄 Total Disk :</b> <code>{total}</code>\n' \
-            f'<b>├  🗂 Total Used :</b> <code>{used}</code> ' \
-            f'<b>├  📂 Total Free :</b> <code>{free}</code>\n\n' \
+            f'<b>├  🗂 Total Used :</b> <code>{used}</code>\n' \
+            f'<b>├  📂 Total Free :</b> <code>{free}</code>\n' \
             f'<b>│</b>\n' \
             f'<b>├  📝 Data Usage 📝</b>\n' \
             f'<b>│</b>\n' \
-            f'<b>├  📥 Total Download :</b> <code>{recv}</code>\n\n' \
+            f'<b>├  📥 Total Download :</b> <code>{recv}</code>\n' \
             f'<b>├  📤 Total Upload :</b> <code>{sent}</code>\n' \
-            f'<b>├  🖥️ CPU :</b> <code>{cpuUsage}%</code> ' \
-            f'<b>├  🚀 RAM :</b> <code>{memory}%</code> ' \
-            f'<b>├  🗄 DISK :</b> <code>{disk}%</code>'
+            f'<b>├  🖥️ CPU :</b> <code>{cpuUsage}%</code>\n' \
+            f'<b>├  🚀 RAM :</b> <code>{memory}%</code>\n' \
+            f'<b>├  🗄 DISK :</b> <code>{disk}%</code>\n' \
+            f'<b>│</b>\n' \   
+            f'<b>╰──「 👨‍💻 @Mani5GRockers 」</b>'
+  
     sendMessage(stats, context.bot, update)
     
 
