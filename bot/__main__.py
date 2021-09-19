@@ -59,7 +59,7 @@ def start(update, context):
     reply_markup = InlineKeyboardMarkup(buttons.build_menu(4))
     if CustomFilters.authorized_user(update) or CustomFilters.authorized_chat(update):
         start_string = f'''
-This bot can mirror all your links to Google Drive!
+★ This bot can mirror all your links to Drive!
 
 👲 Modded By: @Mani5GRockers
 
