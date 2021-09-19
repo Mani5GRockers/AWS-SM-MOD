@@ -29,11 +29,11 @@ def cloneNode(update, context):
         if CLONE_LIMIT is not None:
             result = check_limit(size, CLONE_LIMIT)
             if result:
-                msg2 = f'Failed, Clone limit is {CLONE_LIMIT}.\nYour File/Folder size is {get_readable_file_size(size)}.'
+                msg2 = f'❌ Failed, Clone limit is {CLONE_LIMIT}.\nYour File/Folder size is {get_readable_file_size(size)}.'
                 sendMessage(msg2, context.bot, update)
                 return
         if files < 15:
-            msg = sendMessage(f"Cloning: <code>{link}</code>", context.bot, update)
+            msg = sendMessage(f"✅ Cloning: <code>{link}</code>", context.bot, update)
             result, button = gd.clone(link)
             deleteMessage(context.bot, msg)
         else:
@@ -61,14 +61,14 @@ def cloneNode(update, context):
         else:
             uname = f'<a href="tg://user?id={update.message.from_user.id}">{update.message.from_user.first_name}</a>'
         if uname is not None:
-            cc = f'\n\ncc: {uname}'
+            cc = f'\n👤 User: 👉 {uname}\n\n✥═══ @Mani5GRockers ═══✥\n\n'
             men = f'{uname} '
         if button in ["cancelled", ""]:
             sendMessage(men + result, context.bot, update)
         else:
             sendMarkup(result + cc, context.bot, update, button)
     else:
-        sendMessage('Provide G-Drive Shareable Link to Clone.', context.bot, update)
+        sendMessage('👉 Provide ☁️ G-Drive Shareable Link 🔗 to Clone or copy.', context.bot, update)
 
 clone_handler = CommandHandler(BotCommands.CloneCommand, cloneNode, filters=CustomFilters.authorized_chat | CustomFilters.authorized_user, run_async=True)
 dispatcher.add_handler(clone_handler)
