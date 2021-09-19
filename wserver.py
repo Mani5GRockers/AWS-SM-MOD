@@ -705,7 +705,7 @@ async def set_priority(request):
 @routes.get('/')
 async def homepage(request):
 
-    return web.Response(text="<h1>Mani5GRockers <a href='https://github.com/Mani5GRockers'>@GitHub</a> By <a href='https://github.com/Mani5GRockers'>Mani5GRockers</a></h1>", content_type="text/html")
+    return web.Response(text="<h1>AWS MIRROR ZONE <a href='https://github.com/Mani5GRockers'>@GitHub</a> By <a href='https://github.com/Mani5GRockers'>Mani5GRockers</a></h1>", content_type="text/html")
 
 
 async def e404_middleware(app, handler):
