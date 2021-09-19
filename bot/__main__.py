@@ -45,7 +45,6 @@ def stats(update, context):
             f'<b>├  🖥️ CPU :</b> <code>{cpuUsage}%</code>\n' \
             f'<b>├  🚀 RAM :</b> <code>{memory}%</code>\n' \
             f'<b>├  🗄 DISK :</b> <code>{disk}%</code>\n' \
-            f'<b>│</b>\n' \   
             f'<b>╰──「 👨‍💻 @Mani5GRockers 」</b>'
   
     sendMessage(stats, context.bot, update)
