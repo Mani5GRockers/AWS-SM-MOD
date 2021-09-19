@@ -162,7 +162,7 @@ help = Telegraph(access_token=telegraph_token).create_page(
 help_string = f'''
     \n🎀 AWS MIRROR ZONE Help 🎀
     
-    ✥═══ @awsmirrorzone ═══✥
+    ✥══ @awsmirrorzone ══✥
     
 ★ /{BotCommands.PingCommand}: Check how long it takes to Ping the Bot
 
@@ -186,7 +186,7 @@ help_string = f'''
 
 ★ /{BotCommands.ExecHelpCommand}: Get help for Executor module (Only Owner)
 
-✥═══ @Mani5GRockers ═══✥
+✥══ @Mani5GRockers ══✥
 '''
 
 def bot_help(update, context):
