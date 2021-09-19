@@ -131,44 +131,45 @@ def get_readable_message():
         for download in list(download_dict.values()):
             INDEX += 1
             if INDEX > COUNT:
-                msg += f"<b>Filename:</b> <code>{download.name()}</code>"
-                msg += f"\n<b>Status:</b> <i>{download.status()}</i>"
+                msg += f"<b>🗂 𝗙𝗶𝗹𝗲𝗡𝗮𝗺𝗲 :</b> <code>{download.name()}</code>"
+                msg += f"\n<b>🚦 𝐒𝐭𝐚𝐭𝐮𝐬 :</b> <i>{download.status()}</i>"
                 if download.status() not in [
                     MirrorStatus.STATUS_ARCHIVING,
                     MirrorStatus.STATUS_EXTRACTING,
                 ]:
-                    msg += f"\n<code>{get_progress_bar_string(download)} {download.progress()}</code>"
+                    msg += f"\n<code>{get_progress_bar_string(download)} 〘{download.progress()}〙</code>"
                     if download.status() == MirrorStatus.STATUS_CLONING:
-                        msg += f"\n<b>Cloned:</b> <code>{get_readable_file_size(download.processed_bytes())}</code> of <code>{download.size()}</code>"
+                        msg += f"\n<b>♻️ Cloned :</b> <code>〘{get_readable_file_size(download.processed_bytes())}</code> of <code>{download.size()}〙</code>"
                     elif download.status() == MirrorStatus.STATUS_UPLOADING:
-                        msg += f"\n<b>Uploaded:</b> <code>{get_readable_file_size(download.processed_bytes())}</code> of <code>{download.size()}</code>"
+                        msg += f"\n<b>📤 𝐔𝐩𝐥𝐨𝐚𝐝𝐞𝐝 :</b> <code>〘{get_readable_file_size(download.processed_bytes())}</code> of <code>{download.size()}〙</code>"
                     else:
-                        msg += f"\n<b>Downloaded:</b> <code>{get_readable_file_size(download.processed_bytes())}</code> of <code>{download.size()}</code>"
-                    msg += f"\n<b>Speed:</b> <code>{download.speed()}</code>" \
-                            f", <b>ETA:</b> <code>{download.eta()}</code> "
+                        msg += f"\n<b>📥 𝐃𝐨𝐰𝐧𝐥𝐨𝐚𝐝𝐞𝐝 :</b> <code>〘{get_readable_file_size(download.processed_bytes())}</code> of <code>{download.size()}〙</code>"
+                    msg += f"\n<b>🚀 𝐒𝐩𝐞𝐞𝐝 :</b> <code>〘{download.speed()}〙</code>" \
+                            f", <b>⏳ 𝐄𝐓𝐀 :</b> <code>〘{download.eta()}〙</code> "
                     # if hasattr(download, 'is_torrent'):
                     try:
-                        msg += f"\n<b>Seeders:</b> <code>{download.aria_download().num_seeders}</code>" \
-                            f" | <b>Peers:</b> <code>{download.aria_download().connections}</code>"
+                        msg += f"\n<b>👤 𝐒𝐞𝐞𝐝𝐞𝐫𝐬 :</b> <code>〘{download.aria_download().num_seeders}〙</code>" \
+                            f" | <b>🔄 𝐏𝐞𝐞𝐫𝐬 :</b> <code>〘{download.aria_download().connections}〙</code>"
                     except:
                         pass
                     try:
-                        msg += f"\n<b>Seeders:</b> <code>{download.torrent_info().num_seeds}</code>" \
-                            f" | <b>Leechers:</b> <code>{download.torrent_info().num_leechs}</code>"
+                        msg += f"\n<b>👤 𝐒𝐞𝐞𝐝𝐞𝐫𝐬 :</b> <code>〘{download.torrent_info().num_seeds}〙</code>" \
+                            f" | <b>🔄 Leechers :</b> <code>〘{download.torrent_info().num_leechs}〙</code>"
                     except:
                         pass
-                    msg += f"\n<b>To Stop:</b> <code>/{BotCommands.CancelMirror} {download.gid()}</code>"
-                msg += "\n\n"
+                    msg += f'\n<b>👨 User : 👉 </b> <a href="tg://user?id={download.message.from_user.id}">〘{download.message.from_user.first_name}〙</a> (<code>{download.message.from_user.id}</code>)'
+                    msg += f"\n<b>🚫 𝐓𝐨 𝐒𝐭𝐨𝐩 :</b> <code>/{BotCommands.CancelMirror} {download.gid()}</code>"
+                    msg += '\n\n✥═══ @Mani5GRockers ═══✥\n\n'
                 if STATUS_LIMIT is not None and INDEX >= COUNT + STATUS_LIMIT:
                     break
         if STATUS_LIMIT is not None:
             if INDEX > COUNT + STATUS_LIMIT:
                 return None, None
             if dick_no > STATUS_LIMIT:
-                msg += f"<b>Page:</b> <code>{PAGE_NO}/{pages}</code> | <b>Tasks:</b> <code>{dick_no}</code>\n"
+                msg += f"<b>📖 Page :</b> <code>{PAGE_NO}/{pages}</code> | <b>📊 Tasks:</b> <code>{dick_no}</code>\n"
                 buttons = button_build.ButtonMaker()
-                buttons.sbutton("Previous", "pre")
-                buttons.sbutton("Next", "nex")
+                buttons.sbutton("⬅️ Previous", "pre")
+                buttons.sbutton("➡️ Next", "nex")
                 button = InlineKeyboardMarkup(buttons.build_menu(2))
                 return msg, button
         return msg, ""
@@ -196,7 +197,7 @@ def flip(update, context):
 
 
 def check_limit(size, limit, tar_unzip_limit=None, is_tar_ext=False):
-    LOGGER.info('Checking File/Folder Size...')
+    LOGGER.info('👨‍💻 Checking File/Folder Size...')
     if is_tar_ext and tar_unzip_limit is not None:
         limit = tar_unzip_limit
     if limit is not None:
