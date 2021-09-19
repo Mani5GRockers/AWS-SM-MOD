@@ -61,13 +61,13 @@ def start(update, context):
 
 👲 Modded By: @Mani5GRockers
 
-Type /{BotCommands.HelpCommand} to get a list of available commands
+★ Type /{BotCommands.HelpCommand} to get a list of available commands
 '''
         if update.message.chat.type == "private" :
             sendMessage(f"👤 Hey I'm AWS MIRROR BOT 👤\n\n➩ JOIN GROUP List 🏆 \n\n ✅ JOIN AWS MIRROR ZONE ✅ \n\n ✥════ @awsmirrorzone ════✥ \n\n ✅ AWS MIRROR ZONE Discussion ✅ \n\n ✥════ @aws_public_chat ════✥ \n\n👩‍⚕ Bot Developer by 👨‍⚕️   👇\n\n✥════ @Mani5GRockers ════✥ \n\n /help - How To use This Group", context.bot, update)
         else :
-        sendMarkup(start_string, context.bot, update, reply_markup)
-    else:
+            sendMarkup(start_string, context.bot, update, reply_markup)
+    else :
         sendMarkup(
             '🔒 Oops! not a Authorized user.\n🔐 Please contact Bot developer 👉 <b>@Mani5GRockers</b>.',
             context.bot,
