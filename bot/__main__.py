@@ -56,7 +56,7 @@ def start(update, context):
     buttons.buildbutton("🦸 Chat ᴍɪʀʀᴏʀ ɢʀᴏᴜᴘ 🦸‍♂️", "https://awslink.in/awsmirrorzone-support")
     buttons.buildbutton("⚙️ AWS BOT List ⚙️", "http://t.me/mani5grockersbot")
     buttons.buildbutton("🌐 Website 🌐", "https://bitly.awslink.in/mani5grockers")
-    reply_markup = InlineKeyboardMarkup(buttons.build_menu(4))
+    reply_markup = InlineKeyboardMarkup(buttons.build_menu(2))
     if CustomFilters.authorized_user(update) or CustomFilters.authorized_chat(update):
         start_string = f'''
 ★ This bot can mirror all your links to Drive!
