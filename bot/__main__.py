@@ -106,7 +106,7 @@ help_string_telegraph = f'''
 <br><br>
     ✥═══ @awsmirrorzone ═══✥
 <br><br>
-<b>★ /{BotCommands.HelpCommand}</b>: To get this message
+<b>★ /{BotCommands.HelpCommand}</b> To get this message
 <br><br>
 <b>★ /{BotCommands.MirrorCommand}</b> [download_url][magnet_link]: Start mirroring the link to Google Drive.
 <br><br>
@@ -116,13 +116,13 @@ help_string_telegraph = f'''
 <br><br>
 <b>★ /{BotCommands.UnzipMirrorCommand}</b> [download_url][magnet_link]: Starts mirroring and if downloaded file is any archive, extracts it to Google Drive
 <br><br>
-<b>★ /{BotCommands.QbMirrorCommand}</b> [magnet_link]: Start Mirroring using qBittorrent, Use <b>/{BotCommands.QbMirrorCommand} s</b> to select files before downloading
+<b>★ /{BotCommands.QbMirrorCommand}</b> 🧲 [magnet_link]: Start Mirroring using qBittorrent, Use <b>/{BotCommands.QbMirrorCommand} s</b> to select files before downloading
 <br><br>
-<b>★ /{BotCommands.QbTarMirrorCommand}</b> [magnet_link]: Start mirroring using qBittorrent and upload the archived (.tar) version of the download
+<b>★ /{BotCommands.QbTarMirrorCommand}</b> 🧲 [magnet_link]: Start mirroring using qBittorrent and upload the archived (.tar) version of the download
 <br><br>
-<b>★ /{BotCommands.QbZipMirrorCommand}</b> [magnet_link]: Start mirroring using qBittorrent and upload the archived (.zip) version of the download
+<b>★ /{BotCommands.QbZipMirrorCommand}</b> 🧲 [magnet_link]: Start mirroring using qBittorrent and upload the archived (.zip) version of the download
 <br><br>
-<b>★ /{BotCommands.QbUnzipMirrorCommand}</b> [magnet_link]: Starts mirroring using qBittorrent and if downloaded file is any archive, extracts it to Google Drive
+<b>★ /{BotCommands.QbUnzipMirrorCommand}</b> 🧲 [magnet_link]: Starts mirroring using qBittorrent and if downloaded file is any archive, extracts it to Google Drive
 <br><br>
 <b>★ /{BotCommands.CloneCommand}</b> [drive_url]: Copy file/folder to Google Drive
 <br><br>
@@ -136,15 +136,19 @@ help_string_telegraph = f'''
 <br><br>
 <b>★ /{BotCommands.ZipWatchCommand}</b> [youtube-dl supported link]: Mirror through youtube-dl and zip before uploading
 <br><br>
-<b>★ /{BotCommands.CancelMirror}</b>: Reply to the message by which the download was initiated and that download will be cancelled
+<b>★ /{BotCommands.CancelMirror}</b> 🚫 Reply to the message by which the download was initiated and that download will be cancelled
 <br><br>
-<b>★ /{BotCommands.CancelAllCommand}</b>: Cancel all running tasks
+<b>★ /{BotCommands.CancelAllCommand}</b> 🚫 Cancel all running tasks
 <br><br>
-<b>★ /{BotCommands.ListCommand}</b> [search term]: Searches the search term in the Google Drive, If found replies with the link
+<b>★ /{BotCommands.ListCommand}</b> 🔍 [search file name]: Searches the search term in the Google Drive, If found replies with the link
 <br><br>
-<b>★ /{BotCommands.StatusCommand}</b>: Shows a status of all the downloads
+<b>★ /{BotCommands.StatusCommand}</b> 📊 Shows a status of all the downloads
 <br><br>
-<b>★ /{BotCommands.StatsCommand}</b>: Show Stats of the machine the bot is hosted on
+<b>★ /{BotCommands.StatsCommand}</b> 📊 Show Stats of the machine the bot is hosted on
+<br><br>
+<b>★ /{BotCommands.TsHelpCommand}</b> 🧲 help for Torrent 🔍 search:  1337x, piratebay, tgx, yts, eztv, nyaa.si, sukebei, torlock, rarbg, ts  ★
+<br><br>
+<b>★ /{BotCommands.TsHelp1Command}</b> 🧲 Get help for Torrent1 🔍 search name ★
 <br><br>
    ✥═══ @Mani5GRockers ═══✥
 '''
@@ -181,10 +185,6 @@ help_string = f'''
 ★ /{BotCommands.ShellCommand}: Run commands in Shell (Only Owner)
 
 ★ /{BotCommands.ExecHelpCommand}: Get help for Executor module (Only Owner)
-
-★ /{BotCommands.TsHelpCommand}: Get help for Torrent search module
-
-★ /{BotCommands.TsHelp1Command}: Get help for Torrent search module
 
 ✥═══ @Mani5GRockers ═══✥
 '''
