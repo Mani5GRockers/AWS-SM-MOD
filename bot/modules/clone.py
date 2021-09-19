@@ -20,10 +20,10 @@ def cloneNode(update, context):
             sendMessage(res, context.bot, update)
             return
         if STOP_DUPLICATE:
-            LOGGER.info('Checking File/Folder if already in Drive...')
+            LOGGER.info('🔍 Checking File/Folder if already in ☁️ Drive...')
             smsg, button = gd.drive_list(name, True, True)
             if smsg:
-                msg3 = "File/Folder is already available in Drive.\nHere are the search results:"
+                msg3 = "🔘 Reason: \n\n🗂 File is already available in ☁️ Drive\n📒 Must Search Files! Before Mirroring\n👉 Here are the search results 👇"
                 sendMarkup(msg3, context.bot, update, button)
                 return
         if CLONE_LIMIT is not None:
