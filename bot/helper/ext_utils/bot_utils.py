@@ -131,6 +131,7 @@ def get_readable_message():
         for download in list(download_dict.values()):
             INDEX += 1
             if INDEX > COUNT:
+                msg += f'<b>✥══ @awsmirrorzone ══✥\n\n</b>'
                 msg += f"<b>🗂 𝗙𝗶𝗹𝗲𝗡𝗮𝗺𝗲 :</b> <code>{download.name()}</code>\n"
                 msg += f"\n<b>🚦 𝐒𝐭𝐚𝐭𝐮𝐬 :</b> <i>{download.status()}</i>"
                 if download.status() not in [
