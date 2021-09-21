@@ -119,7 +119,7 @@ def get_progress_bar_string(status):
 
 def get_readable_message():
     with download_dict_lock:
-        msg = ""
+        msg = "✥══ @awsmirrorzone ══✥\n\n"
         INDEX = 0
         if STATUS_LIMIT is not None:
             dick_no = len(download_dict)
@@ -131,7 +131,6 @@ def get_readable_message():
         for download in list(download_dict.values()):
             INDEX += 1
             if INDEX > COUNT:
-                msg += f'<b>✥══ @awsmirrorzone ══✥\n\n</b>'
                 msg += f"<b>🗂 𝗙𝗶𝗹𝗲𝗡𝗮𝗺𝗲 :</b> <code>{download.name()}</code>\n"
                 msg += f"\n<b>🚦 𝐒𝐭𝐚𝐭𝐮𝐬 :</b> <i>{download.status()}</i>"
                 if download.status() not in [
