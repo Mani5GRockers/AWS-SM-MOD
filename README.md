@@ -18,7 +18,7 @@
 
      * torrent_searchs.py, custom_filters.py, requirements.txt, add main py only mirrorx {from telegram import ParseMode}
 
-     * Trrent Comment edit add torrent_searchs.py, __main__.py, bot_commands.py, config.env Done.
+     * Trrent Comment and api site url edit and add torrent_searchs.py, __main__.py, bot_commands.py, config.env Done.
 
 ## MY EDIT PAGE
 - BOT COMMENTS change me - https://github.com/mani66660/slam-mirrorbot-new/edit/master/bot/helper/telegram_helper/bot_commands.py
