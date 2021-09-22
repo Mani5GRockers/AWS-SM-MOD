@@ -323,7 +323,8 @@ for command, value in torrents_dict.items():
 
 def searchhelp(update, context):
     help_string = '''
-<b>🧲 Torrent 🔍 Search 🚦\n</b>
+<b>🧲 All 🚦 Torrent Search 🔍</b>
+
 <b>✥═══ @awsmirrorzone ═══✥</b>
 
 ★ /ts0 <i>[search name]</i>
@@ -337,11 +338,11 @@ def searchhelp(update, context):
 ★ /nyaasi0 <i>[search name]</i>
 ★ /sukebei0 <i>[search name]</i>
 
-<b> 🧲 Torrent 🔍 Search /nAvilabile Sites: \nn</b>
+<b> 🧲 Torrent 🔍 Search /nAvilabile Sites:</b>
 
-<i>★ ts - All Torrent Seacrh, 1337x, Piratebay, TorrentGalaxy, YTS, EztvTorrent , NyaaTorrents, sukebei, torlock, rarbg ★ </i>
+<i>★ TS1 - All Torrent Seacrh, 1337x, Piratebay, TorrentGalaxy, YTS, EztvTorrent , NyaaTorrents, sukebei, torlock, rarbg ★ </i>
 
-<b>Example :</b> <code>/ts0 search name</code>
+<b>Example Comment Use :</b> <code>/ts0 search name</code>
 
 <b>✥═══ @Mani5GRockers ═══✥</b>
 '''
