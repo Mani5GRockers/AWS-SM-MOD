@@ -334,13 +334,10 @@ def searchhelp(update, context):
 ★ /torlock0 <i>[search name]</i>
 ★ /rarbg0 <i>[search name]</i>
 ★ /yts0 <i>[search name]</i>
-
-<b>🧲 Torrent RSS Search 🔍</b>
-
 ★ /nyaasi0 <i>[search name]</i>
 ★ /sukebei0 <i>[search name]</i>
 
-<b>Example :</b> <code>/nyaasi search name</code>
+<b>Example :</b> <code>/ts0 search name</code>
 
 <b>✥═══ @Mani5GRockers ═══✥</b>
 '''
