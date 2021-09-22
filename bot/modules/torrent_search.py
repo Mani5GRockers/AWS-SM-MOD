@@ -338,9 +338,18 @@ def searchhelp(update, context):
 ★ /nyaasi <i>[search name]</i>
 ★ /sukebei <i>[search name]</i>
 
-<b> 🧲 Torrent 🔍 Search /nAvilabile Sites:</b>
+<b> 🧲 Torrent 🔍 Search Avilabile Sites:</b>
 
-<i>★ TS - All Torrent Seacrh, 1337x, Piratebay, TorrentGalaxy, YTS, EztvTorrent , NyaaTorrents, sukebei, torlock, rarbg ★ </i>
+<i>★ ts - All Torrent Seacrh</i>
+<i>★ 337x - 337x Torrent Seacrh</i>
+<i>★ piratebay - Piratebay Torrent Seacrh</i>
+<i>★ tgx - TorrentGalaxy Torrent Seacrh</i>
+<i>★ yts - YTS Torrent Seacrh</i>
+<i>★ eztv - Eztv Torrent Seacrh</i>
+<i>★ torlock - Torlock Torrent Seacrh</i>
+<i>★ rarbg - Rarbg Torrent Seacrh</i>
+<i>★ sukebei - Sukebei Torrent Seacrh</i>
+<i>★ nyaasi - Nyaa Torrent Seacrh</i>
 
 <b>Example Comment Use :</b> <code>/ts search name</code>
 
