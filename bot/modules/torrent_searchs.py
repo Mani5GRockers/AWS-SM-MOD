@@ -50,7 +50,7 @@ async def return_search(query, page=1, sukebei=False):
                 splitted = urlsplit(link)
                 if splitted.scheme == 'magnet' and splitted.query:
                     link = f'<code>{link}</code>'
-                newtext = f'''<b>\n\n✥════ @awsmirrorzone ════✥\n\n{a + 1}.</b> <code>{html.escape(i["title"])}</code>
+                newtext = f'''<b>\n\n✥══ @awsmirrorzone ══✥\n\n{a + 1}.</b> <code>{html.escape(i["title"])}</code>
 <b>\n🧲 TorrentLink:\n\n</b> <code>{link}</code>
 <b>\n🗃 Size:</b> <code>{i["nyaa_size"]}</code>
 <b>👤 Seeders:</b> <code>{i["nyaa_seeders"]}</code>
