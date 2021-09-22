@@ -199,12 +199,12 @@ ls
 cd mirrorxbot                          #Change Repo Name or repo remove cmd $rm -rf MirrorX
 heroku git:remote -a awsxxxbot         #Change awsxxxbot new app Name
 sudo pip3 install -r requirements.txt
-heroku stack:set container -a awsxxxbot             #Free Dynos install   or $heroku stack:set container
+heroku stack:set container           only one app deplay work  #Free Dynos install   or $heroku stack:set container -a awsxxxbot    multi app use
 heroku addons:create heroku-postgresql                                    #Create heroku-postgresql database
 git add -f credentials.json token.pickle config.env heroku.yml
 git commit -m "Added Creds."
 git config --global user.email heroku31@tempmail.awslink.in               #Change heroku email id set your email id
-git config --global user.name Your Name                                   #Change your Name
+git config --global user.name Your Name                                   #Change your Name [MAIN Awssmbot]
 git commit -m "First Deployment"
 git push heroku master --force                    $git push heroku archived --force    # not working master change archived beta
 
