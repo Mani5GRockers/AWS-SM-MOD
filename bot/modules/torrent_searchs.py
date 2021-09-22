@@ -337,6 +337,10 @@ def searchhelp(update, context):
 ★ /nyaasi0 <i>[search name]</i>
 ★ /sukebei0 <i>[search name]</i>
 
+<b> 🧲 Torrent 🔍 Search /nAvilabile Sites: \nn</b>
+
+<i>★ ts - All Torrent Seacrh, 1337x, Piratebay, TorrentGalaxy, YTS, EztvTorrent , NyaaTorrents, sukebei, torlock, rarbg ★ </i>
+
 <b>Example :</b> <code>/ts0 search name</code>
 
 <b>✥═══ @Mani5GRockers ═══✥</b>
