@@ -14,6 +14,10 @@
 
 #Fix https://awslink.in/slam  https://t.me/SlamMirrorUpdates 07-09-2021 Last Updates.
 
+# HOW to Add Torrnet files - torrent_searchs.py, custom_filters.py, requirements.txt, add main py only mirrorx {from telegram import ParseMode}
+
+     * Trrent Comment edit add torrent_searchs.py, __main__.py, bot_commands.py, config.env Done.
+
 ## MY EDIT PAGE
 - BOT COMMENTS change me - https://github.com/mani66660/slam-mirrorbot-new/edit/master/bot/helper/telegram_helper/bot_commands.py
 
