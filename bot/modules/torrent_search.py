@@ -50,7 +50,7 @@ async def return_search(query, page=1, sukebei=False):
                 splitted = urlsplit(link)
                 if splitted.scheme == 'magnet' and splitted.query:
                     link = f'<code>{link}</code>'
-                newtext = f'''<b>\n\n✥════ @awsmirrorzone ════✥\n\n{a + 1}.</b> <code>{html.escape(i["title"])}</code>
+                newtext = f'''<b>\n\n✥══ @awsmirrorzone ══✥\n\n{a + 1}.</b> <code>{html.escape(i["title"])}</code>
 <b>\n🧲 TorrentLink:\n\n</b> <code>{link}</code>
 <b>\n🗃 Size:</b> <code>{i["nyaa_size"]}</code>
 <b>👤 Seeders:</b> <code>{i["nyaa_seeders"]}</code>
@@ -208,8 +208,8 @@ class TorrentSearch:
             inline.append(nextBtn)
 
         res_lim = min(self.RESULT_LIMIT, len(self.response) - self.RESULT_LIMIT*self.index)
-        result = f"**✥════ @awsmirrorzone ════✥\n\n📖 Page - {self.index+1}**\n\n"
-        result += "\n\n✥════ @Mani5GRockers ════✥\n\n".join(
+        result = f"**✥══ @awsmirrorzone ══✥\n\n📖 Page - {self.index+1}**\n\n"
+        result += "\n\n✥══ @Mani5GRockers ══✥\n\n".join(
             self.get_formatted_string(self.response[self.response_range[self.index]+i])
             for i in range(res_lim)
         )
