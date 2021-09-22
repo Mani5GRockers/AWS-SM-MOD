@@ -699,7 +699,7 @@ class GoogleDriveHelper:
             elif not response["files"]:
                 continue
             if not Title:
-                msg += f'<h4>Search Result For: {fileName}</h4><br>✥══ @Mani5GRockers ══✥<br><br>'
+                msg += f'<h4>✅ Search Result For: {fileName}</h4><br>✥══ @Mani5GRockers ══✥<br><br>'
                 Title = True
             if len(DRIVES_NAMES) > 1 and DRIVES_NAMES[index] is not None:
                 msg += f"╾────────────╼<br><b>{DRIVES_NAMES[index]}</b><br>╾────────────╼<br>"
@@ -784,7 +784,7 @@ class GoogleDriveHelper:
         if self.num_of_path > 1:
             self.edit_telegraph()
 
-        msg = f"<b>Search Name <code>{fileName}</code> 🔎 Founded <code>{all_contents_count}</code> \n\n★ Results for 👇</b>"
+        msg = f"<b>✥══ @Mani5GRockers ══✥ \n\n🔎 Search Name : <code>{fileName}</code> \n\n📊 Search Name Count : <code>{all_contents_count}</code> \n\n★ Results for 👇</b>"
         buttons = button_build.ButtonMaker()
         buttons.buildbutton("✅ Click Here ✅", f"https://telegra.ph/{self.path[0]}")
 
