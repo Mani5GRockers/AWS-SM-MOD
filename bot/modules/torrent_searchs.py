@@ -303,18 +303,18 @@ RESULT_STR_ALL = (
     "👤 Seeders: {Seeders} | 🔄 Leechers: {Leechers}"
 )
 
-TORRENT_API_URL1 = 'https://api.eunhamirror.repl.co/api'
-#TORRENT_API_URL1 = 'https://api.linkstore.eu.org/api'
+TORRENT_API_URL = 'https://api.eunhamirror.repl.co/api'
+#TORRENT_API_URL = 'https://api.linkstore.eu.org/api'
 
 torrents_dict = {
-    '1337x1': {'source': f"{TORRENT_API_URL1}/1337x/", 'result_str': RESULT_STR_1337},
-    'piratebay1': {'source': f"{TORRENT_API_URL1}/piratebay/", 'result_str': RESULT_STR_PIRATEBAY},
-    'tgx1': {'source': f"{TORRENT_API_URL1}/tgx/", 'result_str': RESULT_STR_TGX},
-    'yts1': {'source': f"{TORRENT_API_URL1}/yts/", 'result_str': RESULT_STR_YTS},
-    'eztv1': {'source': f"{TORRENT_API_URL1}/eztv/", 'result_str': RESULT_STR_EZTV},
-    'torlock1': {'source': f"{TORRENT_API_URL1}/torlock/", 'result_str': RESULT_STR_TORLOCK},
-    'rarbg1': {'source': f"{TORRENT_API_URL1}/rarbg/", 'result_str': RESULT_STR_RARBG},
-    'ts1': {'source': f"{TORRENT_API_URL1}/all/", 'result_str': RESULT_STR_ALL}
+    '1337x0': {'source': f"{TORRENT_API_URL}/1337x/", 'result_str': RESULT_STR_1337},
+    'piratebay0': {'source': f"{TORRENT_API_URL}/piratebay/", 'result_str': RESULT_STR_PIRATEBAY},
+    'tgx0': {'source': f"{TORRENT_API_URL}/tgx/", 'result_str': RESULT_STR_TGX},
+    'yts0': {'source': f"{TORRENT_API_URL}/yts/", 'result_str': RESULT_STR_YTS},
+    'eztv0': {'source': f"{TORRENT_API_URL}/eztv/", 'result_str': RESULT_STR_EZTV},
+    'torlock0': {'source': f"{TORRENT_API_URL}/torlock/", 'result_str': RESULT_STR_TORLOCK},
+    'rarbg0': {'source': f"{TORRENT_API_URL}/rarbg/", 'result_str': RESULT_STR_RARBG},
+    'ts0': {'source': f"{TORRENT_API_URL}/all/", 'result_str': RESULT_STR_ALL}
 }
 
 torrent_handlers = []
