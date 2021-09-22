@@ -334,11 +334,12 @@ def searchhelp(update, context):
 ★ /torlock <i>[search name]</i>
 ★ /rarbg <i>[search name]</i>
 ★ /yts <i>[search name]</i>
-
-<b>🧲 Torrent RSS Search 🔍</b>
-
 ★ /nyaasi <i>[search name]</i>
 ★ /sukebei <i>[search name]</i>
+
+<b> 🧲 Torrent 🔍 Search /nAvilabile Sites: \nn</b>
+
+<i>★ ts - All Torrent Seacrh, 1337x, Piratebay, TorrentGalaxy, YTS, EztvTorrent , NyaaTorrents, sukebei, torlock, rarbg ★ </i>
 
 <b>Example :</b> <code>/nyaasi search name</code>
 
