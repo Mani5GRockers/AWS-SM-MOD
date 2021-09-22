@@ -73,14 +73,14 @@ async def return_search(query, page=1, sukebei=False):
 message_info = dict()
 ignore = set()
 
-@app.on_message(filters.command(['nyaasi', f'nyaasi@{bot.username}']))
+@app.on_message(filters.command(['nyaasi0', f'nyaasi@{bot.username}']))
 async def nyaa_search(client, message):
     text = message.text.split(' ')
     text.pop(0)
     query = ' '.join(text)
     await init_search(client, message, query, False)
 
-@app.on_message(filters.command(['sukebei', f'sukebei@{bot.username}']))
+@app.on_message(filters.command(['sukebei0', f'sukebei@{bot.username}']))
 async def nyaa_search_sukebei(client, message):
     text = message.text.split(' ')
     text.pop(0)
@@ -326,19 +326,19 @@ def searchhelp(update, context):
 <b>🧲 Torrent 🔍 Search 🚦\n</b>
 <b>✥═══ @awsmirrorzone ═══✥</b>
 
-★ /ts1 <i>[search name]</i>
-★ /1337x1 <i>[search name]</i>
-★ /piratebay1 <i>[search name]</i>
-★ /tgx1 <i>[search name]</i>
-★ /eztv1 <i>[search name]</i>
-★ /torlock1 <i>[search name]</i>
-★ /rarbg1 <i>[search name]</i>
-★ /yts1 <i>[search name]</i>
+★ /ts0 <i>[search name]</i>
+★ /1337x0 <i>[search name]</i>
+★ /piratebay0 <i>[search name]</i>
+★ /tgx0 <i>[search name]</i>
+★ /eztv0 <i>[search name]</i>
+★ /torlock0 <i>[search name]</i>
+★ /rarbg0 <i>[search name]</i>
+★ /yts0 <i>[search name]</i>
 
 <b>🧲 Torrent RSS Search 🔍</b>
 
-★ /nyaasi <i>[search name]</i>
-★ /sukebei <i>[search name]</i>
+★ /nyaasi0 <i>[search name]</i>
+★ /sukebei0 <i>[search name]</i>
 
 <b>Example :</b> <code>/nyaasi search name</code>
 
@@ -347,5 +347,5 @@ def searchhelp(update, context):
     sendMessage(help_string, context.bot, update)
     
     
-SEARCHHELP_HANDLER = CommandHandler(BotCommands.TsHelp1Command, searchhelp, filters=(CustomFilters.authorized_chat | CustomFilters.authorized_user) & CustomFilters.mirror_owner_filter, run_async=True)
+SEARCHHELP_HANDLER = CommandHandler(BotCommands.TsHelp0Command, searchhelp, filters=(CustomFilters.authorized_chat | CustomFilters.authorized_user) & CustomFilters.mirror_owner_filter, run_async=True)
 dispatcher.add_handler(SEARCHHELP_HANDLER)
