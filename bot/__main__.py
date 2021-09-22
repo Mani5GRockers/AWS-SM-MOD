@@ -148,7 +148,7 @@ help_string_telegraph = f'''
 <br><br>
 <b>★ /{BotCommands.TsHelpCommand}</b> 🧲 help for Torrent 🔍 search:  1337x, piratebay, tgx, yts, eztv, nyaa.si, sukebei, torlock, rarbg, ts  ★
 <br><br>
-<b>★ /{BotCommands.TsHelp1Command}</b> 🧲 Get help for Torrent1 🔍 search name ★
+<b>★ /{BotCommands.TsHelp0Command}</b> 🧲 Get help for Torrent1 🔍 search name ★
 <br><br>
    ✥═══ @Mani5GRockers ═══✥
 '''
@@ -228,7 +228,7 @@ botcmds = [
         (f'{BotCommands.RestartCommand}','♻️ Restart the bot [owner/sudo only] ★'),
         (f'{BotCommands.LogCommand}','★ Get the Bot Log [owner/sudo only] ★'),
         (f'{BotCommands.TsHelpCommand}','🧲 help for Torrent search:  1337x, piratebay, tgx, yts, eztv, nyaa.si, sukebei, torlock, rarbg, ts  ★'),
-        (f'{BotCommands.TsHelp1Command}','🧲 Get help for Torrent1 search name ★')
+        (f'{BotCommands.TsHelp0Command}','🧲 Get help for Torrent1 search name ★')
     ]
 '''
 
