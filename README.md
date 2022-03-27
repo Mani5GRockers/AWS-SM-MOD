@@ -70,8 +70,6 @@ restart - ★ ♻️ Restart the Bot [owner/sudo only] ★
 ts - ★ 🧲 Torrent Search File Name ★
 ```  
   ## multi Bot commands
-``` 
-    
     
 ## Bot commands to be set in [@BotFather](https://t.me/BotFather)
 ```
